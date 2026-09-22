@@ -1,0 +1,5 @@
+node_modules/
+plantillas/salida/
+plantillas/salida-pdf/
+plantillas/activos/*.png
+.DS_Store

@@ -1,0 +1,52 @@
+{
+  "objetivo": "Filial Modelo Uno SpA",
+  "titulo": "Due diligence legal de Filial Modelo Uno SpA",
+  "subtitulo": "Adquisición del 55% por Inversiones Ejemplo Limitada · Fase confirmatoria",
+  "cliente": "Inversiones Ejemplo Limitada",
+  "fecha": "2026-09-22",
+  "fechaCorte": "2026-09-15",
+  "preparadoPor": "[Nombre] · Área Mercantil",
+  "alcance": "Societario, contratos relevantes, laboral y cumplimiento",
+  "resumen": [
+    "La sociedad objetivo está válidamente constituida y sus libros se encuentran al día. Los dos hallazgos críticos son subsanables antes del cierre y se recomienda condicionar la firma a su regularización.",
+    { "recomendacion": "Incluir como condiciones precedentes del cierre la renovación de poderes con ratificación de actos y la obtención del consentimiento del Banco al cambio de control." }
+  ],
+  "modulos": [
+    {
+      "nombre": "Societario",
+      "alcance": "Constitución, modificaciones, órganos sociales, poderes, registro de accionistas y actas de los últimos cinco años.",
+      "hallazgos": [
+        { "materia": "Constitución y vigencia", "hallazgo": "Sociedad constituida el [fecha], con extracto inscrito y publicado en plazo. Certificado de vigencia de [fecha] sin anotaciones.", "riesgo": "verde", "recomendacion": "Sin acción." },
+        { "materia": "Poderes", "hallazgo": "Los poderes del gerente general expiraron en marzo de 2026. Se celebraron cuatro contratos con posterioridad sin poder vigente.", "riesgo": "rojo", "recomendacion": "Sesión de directorio que renueve poderes y ratifique los cuatro contratos, como condición precedente." },
+        { "materia": "Juntas", "hallazgo": "La citación a la junta ordinaria de abril de 2026 se publicó fuera del plazo estatutario.", "riesgo": "ambar", "recomendacion": "Junta extraordinaria que ratifique los acuerdos, ya citada para el 6 de octubre." },
+        { "materia": "Registro de accionistas", "hallazgo": "Al día. El último traspaso está inscrito y firmado.", "riesgo": "verde" }
+      ],
+      "conclusion": "El módulo societario queda conforme una vez ejecutadas la renovación de poderes y la junta de ratificación."
+    },
+    {
+      "nombre": "Contratos relevantes",
+      "alcance": "Contratos con valor anual superior a [monto] y todos los que contengan cláusulas de cambio de control, exclusividad o no competencia.",
+      "hallazgos": [
+        { "materia": "Financiamiento Banco Modelo", "hallazgo": "El contrato exige aviso de cambio de control en cinco días hábiles y permite al Banco exigir el prepago si no aprueba la operación en treinta días.", "riesgo": "rojo", "recomendacion": "Obtener el consentimiento previo del Banco antes de la firma, como condición precedente." },
+        { "materia": "Arriendo de oficinas", "hallazgo": "Contrato vigente hasta 2028 sin cláusula de cambio de control. Renta al día.", "riesgo": "verde" },
+        { "materia": "Distribución exclusiva", "hallazgo": "Cláusula de exclusividad territorial por tres años, con penalidad por incumplimiento de [monto]. No afecta la operación pero limita el plan de expansión del comprador.", "riesgo": "ambar", "recomendacion": "Evaluar renegociación posterior al cierre; informar al comprador." }
+      ]
+    },
+    {
+      "nombre": "Laboral",
+      "alcance": "Contratos de trabajo, finiquitos, cotizaciones previsionales y litigios de los últimos tres años.",
+      "hallazgos": [
+        { "materia": "Cotizaciones", "hallazgo": "Certificado de cumplimiento de obligaciones laborales y previsionales sin deuda a la fecha de corte.", "riesgo": "verde" },
+        { "materia": "Litigios", "hallazgo": "Una demanda por despido injustificado en tramitación, con cuantía estimada de [monto].", "riesgo": "ambar", "recomendacion": "Provisionar en el precio o cubrir con indemnidad específica del vendedor." }
+      ]
+    }
+  ],
+  "documentosRevisados": [
+    "Escritura de constitución y modificaciones de Filial Modelo Uno SpA",
+    "Certificados de vigencia, hipotecas y prohibiciones a la fecha de corte",
+    "Libros de actas de directorio y de juntas 2021-2026",
+    "Contrato de financiamiento con Banco Modelo y sus anexos",
+    "Contratos de arriendo y de distribución exclusiva",
+    "Certificado de cumplimiento de obligaciones laborales y previsionales"
+  ]
+}

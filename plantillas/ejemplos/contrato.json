@@ -1,0 +1,30 @@
+{
+  "titulo": "Contrato de prestación de servicios de asesoría",
+  "rotulo": "Instrumento privado",
+  "denominacion": "contrato de prestación de servicios",
+  "ciudad": "Santiago de Chile",
+  "fecha": "2026-09-22",
+  "partes": [
+    { "rol": "Prestadora", "nombre": "Asesorías Modelo Limitada", "rut": "[RUT]", "representante": "don/doña [Nombre]", "rutRepresentante": "[RUT]", "domicilio": "[dirección], comuna de [comuna]", "abreviatura": "Prestadora" },
+    { "rol": "Cliente", "nombre": "Sociedad Modelo S.A.", "rut": "[RUT]", "representante": "don/doña [Nombre]", "rutRepresentante": "[RUT]", "domicilio": "[dirección], comuna de [comuna]", "abreviatura": "Cliente" }
+  ],
+  "clausulas": [
+    { "titulo": "Antecedentes", "contenido": ["El Cliente requiere servicios de asesoría en materia de [materia] y la Prestadora declara contar con la experiencia y los medios necesarios para prestarlos."] },
+    { "titulo": "Objeto", "contenido": ["Por este acto la Prestadora se obliga a prestar al Cliente los servicios que se describen en el **Anexo 1** (los \"Servicios\"), y el Cliente se obliga a pagar por ellos el precio convenido en la cláusula cuarta."] },
+    { "titulo": "Plazo", "contenido": ["El presente Contrato regirá desde esta fecha y por un plazo de [N] meses, renovable por períodos iguales y sucesivos salvo que cualquiera de las Partes comunique a la otra su voluntad de no renovarlo con al menos treinta días de anticipación al vencimiento del período respectivo."] },
+    { "titulo": "Precio y forma de pago", "contenido": [
+      "El Cliente pagará a la Prestadora un honorario mensual de [monto], más el impuesto al valor agregado si correspondiere, contra factura emitida dentro de los primeros cinco días de cada mes.",
+      { "lista": ["El pago se efectuará dentro de los treinta días siguientes a la recepción conforme de la factura.", "Los gastos en que incurra la Prestadora por cuenta del Cliente se reembolsarán contra rendición documentada, previa aprobación escrita."], "tipo": "letra" }
+    ] },
+    { "titulo": "Obligaciones de la Prestadora", "contenido": [{ "lista": ["Prestar los Servicios con la diligencia y el estándar profesional exigibles a un especialista en la materia.", "Informar al Cliente, con la periodicidad acordada en el Anexo 1, el avance de los Servicios.", "Guardar reserva de toda información del Cliente a la que acceda con ocasión de los Servicios."], "tipo": "decimal" }] },
+    { "titulo": "Obligaciones del Cliente", "contenido": [{ "lista": ["Entregar oportunamente la información y los antecedentes necesarios para la prestación de los Servicios.", "Pagar el precio en la forma y plazo convenidos."], "tipo": "decimal" }] },
+    { "titulo": "Confidencialidad", "contenido": ["Las Partes se obligan a mantener en estricta reserva la información que reciban de la otra con ocasión de este Contrato, y a no divulgarla ni usarla para fines distintos de su ejecución, durante su vigencia y por [N] años después de su término."] },
+    { "titulo": "Término anticipado", "contenido": ["Cualquiera de las Partes podrá poner término anticipado al Contrato en caso de incumplimiento grave de las obligaciones de la otra que no sea subsanado dentro de los quince días siguientes al requerimiento escrito respectivo."] },
+    { "titulo": "Domicilio y jurisdicción", "contenido": ["Para todos los efectos de este Contrato las Partes fijan su domicilio en la ciudad y comuna de Santiago y se someten a la competencia de sus tribunales ordinarios de justicia."] }
+  ],
+  "personerias": [
+    "La personería de don/doña [Nombre] para representar a Asesorías Modelo Limitada consta en escritura pública de [fecha], otorgada en la Notaría de [ciudad] de don/doña [Notario].",
+    "La personería de don/doña [Nombre] para representar a Sociedad Modelo S.A. consta en acta de sesión de directorio de [fecha], reducida a escritura pública el [fecha] en la Notaría de [ciudad] de don/doña [Notario]."
+  ],
+  "anexos": [{ "titulo": "Anexo 1", "descripcion": "Descripción de los Servicios, entregables y periodicidad de los informes." }]
+}

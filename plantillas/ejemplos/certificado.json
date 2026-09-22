@@ -1,0 +1,17 @@
+{
+  "sociedad": "Deudora Modelo SpA",
+  "rut": "[RUT]",
+  "titulo": "Certificado de vigencia de poderes y acuerdos",
+  "certificante": { "nombre": "[Nombre del secretario]", "cargo": "Secretario del Directorio" },
+  "certifica": [
+    "Que la Sociedad es una sociedad por acciones constituida por escritura pública de [fecha], otorgada en la Notaría de [ciudad] de don/doña [Notario], cuyo extracto se inscribió a fojas [N] N.º [N] del Registro de Comercio de [ciudad] del año [año] y se publicó en el Diario Oficial de [fecha].",
+    "Que los estatutos sociales vigentes son los que constan en el texto refundido aprobado por junta extraordinaria de accionistas de [fecha], y que no han sido modificados con posterioridad.",
+    "Que en sesión de directorio N.º [N], de [fecha], cuya acta se encuentra firmada y transcrita en el libro respectivo, se aprobó la celebración del contrato de financiamiento con Banco Modelo por [monto] y se facultó a don/doña [Nombre], en su calidad de gerente general, para suscribirlo y otorgar las garantías acordadas.",
+    "Que los poderes indicados en el número anterior se encuentran vigentes a esta fecha y no han sido revocados, limitados ni modificados.",
+    "Que a esta fecha no existe acuerdo social ni resolución judicial o administrativa, de la que la Sociedad tenga conocimiento, que disponga su disolución, liquidación o reorganización."
+  ],
+  "anexos": ["copia del acta de la sesión de directorio N.º [N]", "texto refundido de los estatutos"],
+  "ciudad": "Santiago de Chile",
+  "fecha": "2026-09-22",
+  "finalidad": "para ser presentado ante Banco Modelo en el marco del contrato de financiamiento indicado"
+}

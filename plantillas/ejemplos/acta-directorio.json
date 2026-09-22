@@ -1,0 +1,32 @@
+{
+  "sociedad": "Sociedad Modelo S.A.",
+  "tipoSesion": "ordinaria",
+  "numero": "142",
+  "ciudad": "Santiago de Chile",
+  "fecha": "2026-09-15",
+  "hora": "09:30",
+  "lugar": "las oficinas de la Sociedad ubicadas en [dirección]",
+  "modalidad": "con participación de uno de los directores por medios tecnológicos que permitieron su comunicación simultánea y permanente",
+  "directores": [
+    { "nombre": "[Nombre del Presidente]", "calidad": "Presidente", "asistencia": "Presente" },
+    { "nombre": "[Nombre del director 2]", "calidad": "Director", "asistencia": "Presente" },
+    { "nombre": "[Nombre del director 3]", "calidad": "Director", "asistencia": "Presente por medios tecnológicos" },
+    { "nombre": "[Nombre del director 4]", "calidad": "Director", "asistencia": "Ausente, excusado" },
+    { "nombre": "[Nombre del director 5]", "calidad": "Director", "asistencia": "Presente" }
+  ],
+  "presidente": "[Nombre del Presidente]",
+  "secretario": "[Nombre del secretario]",
+  "actaAnterior": { "numero": "141", "fecha": "2026-08-18", "observaciones": "sin observaciones" },
+  "tabla": [
+    { "materia": "Renovación de poderes del gerente general", "exposicion": "El Presidente expuso que los poderes otorgados en la sesión N.º 118 expiraron en marzo de 2026 y que corresponde renovarlos y ratificar los actos celebrados desde entonces." },
+    { "materia": "Contrato de financiamiento con Banco Modelo", "exposicion": "El gerente general presentó los términos principales del financiamiento por [monto], su plazo, garantías y covenants." },
+    { "materia": "Citación a junta extraordinaria de accionistas", "exposicion": "Se propuso citar a junta para ratificar los acuerdos de la junta ordinaria de abril." }
+  ],
+  "acuerdos": [
+    { "titulo": "Poderes", "texto": "Renovar por dos años los poderes del gerente general don/doña [Nombre] en los mismos términos de la sesión N.º 118, y ratificar todos los actos y contratos celebrados por él/ella en representación de la Sociedad entre el [fecha] y esta fecha, según la nómina que se agrega como anexo A de esta acta." },
+    { "titulo": "Financiamiento", "texto": "Aprobar la celebración del contrato de financiamiento con Banco Modelo por [monto], en los términos del borrador presentado, y facultar al gerente general para suscribirlo, otorgar las garantías acordadas y firmar todos los documentos accesorios." },
+    { "titulo": "Junta extraordinaria", "texto": "Citar a junta extraordinaria de accionistas para el [fecha], a las [hora] horas, en [lugar], con el objeto de ratificar los acuerdos adoptados en la junta ordinaria de [fecha], y facultar al Presidente para efectuar las publicaciones y comunicaciones que correspondan.", "votacion": "unanimidad de los directores presentes" }
+  ],
+  "horaCierre": "11:05",
+  "reduccion": "Se faculta al portador de copia autorizada de esta acta, o de la parte pertinente de ella, para reducirla a escritura pública y requerir las inscripciones, anotaciones y publicaciones que procedan."
+}

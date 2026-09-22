@@ -1,0 +1,18 @@
+{
+  "titulo": "Poder especial para la firma del contrato de financiamiento",
+  "ciudad": "Santiago de Chile",
+  "fecha": "2026-09-22",
+  "mandante": { "nombre": "Deudora Modelo SpA", "rut": "[RUT]", "representante": "don/doña [Nombre], gerente general", "domicilio": "[dirección], comuna de [comuna]" },
+  "mandatario": { "nombre": "[Nombre del mandatario]", "rut": "[RUT]", "domicilio": "[dirección]" },
+  "facultades": [
+    "Suscribir, en nombre y representación del Mandante, el contrato de financiamiento con Banco Modelo por hasta [monto], en los términos aprobados por el directorio en su sesión N.º [N] de [fecha].",
+    "Suscribir los pagarés, contratos de garantía, declaraciones y demás documentos accesorios que el contrato de financiamiento requiera, y solicitar las inscripciones que procedan.",
+    "Entregar y recibir notificaciones, certificados y comunicaciones relacionadas con el contrato de financiamiento.",
+    "Delegar en todo o en parte el presente poder y revocar las delegaciones que efectúe."
+  ],
+  "limites": [
+    "El Mandatario no podrá aceptar condiciones financieras distintas de las aprobadas por el directorio, ni constituir garantías sobre bienes no comprendidos en dicha aprobación.",
+    "El presente poder no faculta para novar, transigir ni renunciar derechos del Mandante."
+  ],
+  "vigencia": "El presente poder tendrá vigencia desde esta fecha y hasta la firma del contrato de financiamiento y sus documentos accesorios, y en todo caso hasta el [fecha], sin perjuicio de su revocación anticipada por el Mandante, la que producirá efectos desde su comunicación por escrito al Mandatario."
+}

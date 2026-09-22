@@ -1,0 +1,28 @@
+{
+  "para": "[Nombre] · Gerente de Finanzas, Deudora Modelo SpA",
+  "de": "[Nombre] · Área Mercantil",
+  "copia": "[Nombre] · Socio a cargo",
+  "fecha": "2026-09-22",
+  "referencia": "Aviso de cambio de control bajo el contrato de financiamiento",
+  "sintesis": "La operación consultada configura un cambio de control según la definición de la cláusula segunda del contrato de financiamiento y obliga a dar aviso escrito al Banco dentro de cinco días hábiles desde que se produzca. El aviso no requiere consentimiento previo, pero el Banco puede exigir el prepago si no lo aprueba dentro de treinta días. Recomendamos dar el aviso antes de firmar y negociar la aprobación en el mismo acto.",
+  "antecedentes": [
+    "Deudora Modelo SpA (la \"Deudora\") mantiene vigente un contrato de financiamiento con Banco Modelo por [monto], suscrito el [fecha] (el \"Contrato\").",
+    "La Deudora proyecta una operación por la cual Inversiones Ejemplo Limitada adquirirá el 55% de sus acciones, con cierre estimado para el [fecha]."
+  ],
+  "consulta": [
+    "Si la operación proyectada constituye un cambio de control bajo el Contrato y, en tal caso, qué obligaciones genera para la Deudora y en qué plazos."
+  ],
+  "analisis": [
+    "La cláusula segunda del Contrato define cambio de control como la adquisición, directa o indirecta, por una persona o grupo, de más del 50% de las acciones con derecho a voto de la Deudora. La operación proyectada supera ese umbral.",
+    { "cita": "\"Cambio de Control: la adquisición, directa o indirecta, por cualquier persona o grupo de personas que actúen concertadamente, de más del cincuenta por ciento de las acciones emitidas con derecho a voto de la Deudora.\" (cláusula segunda, definiciones)" },
+    "La cláusula sexta obliga a informar al Banco por escrito de todo cambio de control dentro de los cinco días hábiles siguientes a que se produzca. La cláusula novena, por su parte, incluye el cambio de control no aprobado por el Banco entre las causales que facultan a exigir el prepago, con un plazo de treinta días para que el Banco manifieste su aprobación o rechazo.",
+    { "lista": [
+      "El aviso es una obligación de informar, no de obtener consentimiento previo.",
+      "La consecuencia del rechazo es el prepago anticipado, no la resolución del Contrato."
+    ], "tipo": "letra" }
+  ],
+  "conclusion": [
+    "La operación es un cambio de control. La Deudora debe avisar por escrito dentro de cinco días hábiles desde el cierre y queda expuesta al prepago si el Banco no la aprueba en treinta días."
+  ],
+  "recomendacion": "Dar el aviso al Banco antes de la firma, acompañado de la información financiera del adquirente, y negociar que la aprobación conste en el mismo instrumento de aviso. Responsable: gerencia de finanzas con apoyo de esta área. Plazo: antes del [fecha de firma]."
+}

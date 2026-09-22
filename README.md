@@ -20,6 +20,7 @@ Estos son los sistemas de diseño que uso, en el estado en que quedaron el 22-09
 - **`garrigues-documentos/`**: generadores de informes en Word (.docx) escritos en Node, con [JSZip](https://stuk.github.io/jszip/). `g2.mjs` es la versión actual: portada con banda verde, separadores de sección, índice automático, tablas con cabecera invertida y semáforo con la palabra escrita. `docx-gen.mjs` es la versión anterior. Los dos necesitan un logotipo en PNG, que no viene en el repositorio.
 - **`gestor-dos-mundos/`**: `globals.css` de una app personal, con una familia de colores fríos para el trabajo y otra rosada para lo personal. Usa la tipografía Satoshi, que no viene en el repositorio.
 - **`personal/`**: la descripción del subsistema Personal.
+- **`plantillas/`**: los generadores de documentos Word con el formato unificado (14 tipos, un comando) y su tablero interactivo en [`plantillas/tablero/index.html`](plantillas/tablero/index.html): catálogo, campos, ejemplo, esqueleto con corchetes, comando y vista previa de cada tipo. Detalle en [`plantillas/README.md`](plantillas/README.md).
 
 ## Paletas principales
 

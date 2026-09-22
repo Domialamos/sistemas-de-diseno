@@ -53,7 +53,14 @@ jobs:
           git add plantillas/tablero/datos.js plantillas/tablero/previews
           if git diff --cached --quiet; then
             echo "Sin cambios en el tablero."
-          else
-            git commit -m "Tablero: vistas previas y datos regenerados [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "Tablero: vistas previas y datos regenerados [skip ci]"
+          # Si alguien empujó mientras corríamos, reintentar sobre lo nuevo en vez de fallar.
+          for intento in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push rechazado (intento $intento): rebase sobre el remoto y reintento."
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          done
+          echo "::error::No se pudo empujar el tablero después de tres intentos."
+          exit 1

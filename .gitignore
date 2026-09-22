@@ -3,3 +3,4 @@ plantillas/salida/
 plantillas/salida-pdf/
 plantillas/activos/*.png
 .DS_Store
+plantillas/tablero/tablero-artifact.html

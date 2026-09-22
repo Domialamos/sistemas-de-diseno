@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Plantillas Garrigues</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+:root{
+  --bg:#FFFFFF; --panel:#F7FAF9; --panel2:#EDF2F0; --ink:#1A1A1A; --ink2:#5A5A5A; --line:#C9D4D1; --line2:#E3EAE8;
+  --accent:#004339; --accent2:#007665; --accent-ink:#FFFFFF; --menta:#63C3B0;
+  --rojo:#B3261E; --ambar:#C98A1B; --ambar-ink:#8A5E10; --ok:#2E7D32; --gris:#ECECEC;
+  --serif:"Source Serif 4",Cambria,Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3",Calibri,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --radius:0; --shadow:0 12px 32px rgba(0,67,57,.10);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0E1714; --panel:#13201C; --panel2:#1A2B26; --ink:#EEF3F1; --ink2:#A6B5B0; --line:#2B3E38; --line2:#1F302B;
+    --accent:#63C3B0; --accent2:#8FD6C7; --accent-ink:#0E1714; --menta:#63C3B0;
+    --rojo:#F28B82; --ambar:#E2B45A; --ambar-ink:#E2B45A; --ok:#7BC28A; --gris:#1F302B;
+    --shadow:0 12px 32px rgba(0,0,0,.45); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0E1714; --panel:#13201C; --panel2:#1A2B26; --ink:#EEF3F1; --ink2:#A6B5B0; --line:#2B3E38; --line2:#1F302B;
+  --accent:#63C3B0; --accent2:#8FD6C7; --accent-ink:#0E1714; --menta:#63C3B0;
+  --rojo:#F28B82; --ambar:#E2B45A; --ambar-ink:#E2B45A; --ok:#7BC28A; --gris:#1F302B;
+  --shadow:0 12px 32px rgba(0,0,0,.45); color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important;animation:none!important} }
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--accent2)}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent2);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;margin:0;text-wrap:balance;color:var(--accent)}
+h2{font-size:26px} h3{font-size:19px}
+.eyebrow{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2)}
+.muted{color:var(--ink2)}
+.num{font-variant-numeric:tabular-nums}
+code,pre{font-family:var(--mono);font-size:12.5px}
+pre{margin:0;background:var(--panel);border:1px solid var(--line);padding:14px 16px;overflow:auto;line-height:1.5;max-height:420px;color:var(--ink)}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:20px}
+
+/* barra superior */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:3px solid var(--accent)}
+.topbar .wrap{display:flex;align-items:center;gap:20px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:12px;margin-right:auto}
+.brand h1{font-size:22px}
+.brand .eyebrow{color:var(--ink2)}
+.search{display:flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--panel);padding:0 12px;height:40px;min-width:min(360px,100%);flex:1 1 260px;max-width:420px}
+.search input{border:0;background:transparent;flex:1;font:inherit;color:var(--ink);outline:none;min-width:0}
+.search input::placeholder{color:var(--ink2)}
+.search kbd{font-family:var(--sans);font-size:11px;color:var(--ink2);border:1px solid var(--line);padding:1px 6px}
+
+/* resumen y filtros */
+.summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:24px}
+.summary div{background:var(--panel);padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.summary b{font-family:var(--serif);font-size:30px;font-weight:700;line-height:1;color:var(--accent)}
+.summary span{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px;align-items:center}
+.chip{border:1px solid var(--line);padding:6px 14px;font-weight:600;font-size:13px;background:var(--bg);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.chip .n{opacity:.7;margin-left:6px;font-variant-numeric:tabular-nums}
+.chips .count{margin-left:auto;font-size:13px;color:var(--ink2)}
+
+/* espacio de trabajo */
+.work{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.25fr);gap:28px;margin-top:22px;align-items:start}
+.list{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 16px;width:100%;text-align:left;padding:14px 14px 14px 16px;border-bottom:1px solid var(--line);border-left:3px solid transparent;background:var(--bg)}
+.row:hover{background:var(--panel)}
+.row[aria-current="true"]{background:var(--panel2);border-left-color:var(--accent)}
+.row .name{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink)}
+.row .fam{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);align-self:center;white-space:nowrap}
+.row .desc{grid-column:1/-1;color:var(--ink2);font-size:13.5px;line-height:1.4}
+.row .meta{grid-column:1/-1;display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink2);margin-top:2px}
+.row .meta b{color:var(--ink);font-weight:600}
+.row .tag{border:1px solid var(--line);padding:0 6px;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.empty{padding:32px 16px;color:var(--ink2);text-align:center}
+
+.detail{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px);border:1px solid var(--line);background:var(--bg);box-shadow:var(--shadow)}
+.detail header{padding:20px 22px 0;display:flex;flex-direction:column;gap:6px}
+.detail header h2{font-size:26px}
+.detail header p{margin:0;color:var(--ink2);max-width:62ch}
+.tabs{display:flex;gap:2px;padding:14px 22px 0;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{padding:8px 12px;font-weight:600;font-size:13.5px;color:var(--ink2);border-bottom:3px solid transparent;margin-bottom:-1px;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent)}
+.pane{padding:18px 22px 22px}
+.pane[hidden]{display:none}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.btn{border:1px solid var(--accent);color:var(--accent);padding:7px 14px;font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn:hover{background:var(--panel2)} .btn.primary:hover{background:var(--accent2);border-color:var(--accent2)}
+.btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.preview{display:grid;grid-template-columns:1fr;gap:12px}
+.preview .page{border:1px solid var(--line);background:#fff;display:block;width:100%;max-width:100%;cursor:zoom-in}
+.preview .nav{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink2)}
+.preview .nav button{border:1px solid var(--line);padding:4px 10px;font-weight:600;color:var(--ink)}
+.preview .nav button:disabled{opacity:.4;cursor:default}
+.fields{display:grid;grid-template-columns:1fr;gap:16px}
+.fields h4{margin:0 0 8px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2)}
+.fields ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:6px 14px}
+.fields li{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line2);padding:5px 0;font-size:13.5px}
+.fields li code{color:var(--ink)}
+.fields li span{color:var(--ink2);font-size:12px;white-space:nowrap}
+.note{font-size:13px;color:var(--ink2);line-height:1.45;margin:10px 0 0}
+.cmd{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;border:1px solid var(--line);background:var(--panel);padding:10px 12px;margin-bottom:8px}
+.cmd code{white-space:pre-wrap;word-break:break-word}
+.cmd small{grid-column:1/-1;color:var(--ink2);font-size:12px}
+
+/* secciones documentales */
+section.doc{margin-top:56px;border-top:3px solid var(--accent);padding-top:14px}
+section.doc .head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+section.doc .head p{margin:0;color:var(--ink2);max-width:70ch}
+.blocks{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.block{border:1px solid var(--line);display:flex;flex-direction:column}
+.block .demo{background:#fff;color:#1A1A1A;padding:16px 18px;border-bottom:1px solid var(--line);min-height:96px;font-family:var(--serif);font-size:13px;line-height:1.3}
+.block .demo .rot{font-family:var(--sans);font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#007665}
+.block .info{padding:12px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.block .info b{font-size:14px}
+.block .info p{margin:0;font-size:13px;color:var(--ink2)}
+.block pre{max-height:none;font-size:11.5px;padding:10px 12px;margin-top:auto}
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.sw{border:1px solid var(--line);text-align:left;display:flex;flex-direction:column;background:var(--bg)}
+.sw i{display:block;height:56px}
+.sw b{font-size:13px;padding:8px 10px 0}
+.sw span{font-size:12px;color:var(--ink2);padding:0 10px 8px;font-family:var(--mono)}
+.sw:hover{border-color:var(--accent2)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:22px}
+.grid2>div{min-width:0}
+.tablewrap{overflow-x:auto;margin-top:10px}
+table.spec{width:100%;border-collapse:collapse;font-size:13.5px}
+table.spec th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);padding:8px 10px;border-bottom:1px solid var(--line)}
+table.spec td{padding:8px 10px;border-bottom:1px solid var(--line2);vertical-align:top}
+table.spec td.t{font-family:var(--serif)}
+.sem{display:inline-flex;align-items:center;gap:8px;font-weight:700}
+.sem i{width:10px;height:10px;display:inline-block}
+.steps{counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.step{border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:8px}
+.step::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:22px;font-weight:700;color:var(--accent-ink);background:var(--accent);width:36px;height:36px;display:flex;align-items:center;justify-content:center}
+.step b{font-family:var(--serif);font-size:17px}
+.step p{margin:0;font-size:13.5px;color:var(--ink2)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.rule{border-left:4px solid var(--accent);background:var(--panel);padding:12px 14px;font-size:13.5px;line-height:1.45}
+.rule.p{border-left-color:#d1477e}
+footer{margin:56px 0 40px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2);display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+
+/* overlay y aviso */
+.lightbox{position:fixed;inset:0;background:rgba(10,20,17,.88);display:flex;align-items:center;justify-content:center;padding:24px;z-index:50;cursor:zoom-out}
+.lightbox img{max-width:100%;max-height:100%;background:#fff;box-shadow:var(--shadow)}
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom,0px) + 24px);transform:translateX(-50%);background:var(--accent);color:var(--accent-ink);padding:10px 18px;font-weight:600;z-index:60;box-shadow:var(--shadow)}
+
+@media (max-width: 980px){
+  .work{grid-template-columns:minmax(0,1fr)}
+  .detail{position:static;box-shadow:none}
+  .grid2{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width: 640px){
+  .summary{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .brand{flex-direction:column;gap:2px}
+  .row{grid-template-columns:1fr}
+  .detail header,.pane{padding-inline:16px} .tabs{padding-inline:16px}
+}
+</style>
+<script src="datos.js"></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <h1>Plantillas Garrigues</h1>
+      <span class="eyebrow">Documentos · área Mercantil</span>
+    </div>
+    <label class="search" for="q">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input id="q" type="search" placeholder="Buscar un tipo de documento" autocomplete="off">
+      <kbd>/</kbd>
+    </label>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="summary" id="summary" aria-label="Resumen">
+    <div><b class="num" id="n-tipos">14</b><span>Tipos de documento</span></div>
+    <div><b class="num" id="n-familias">4</b><span>Familias</span></div>
+    <div><b class="num">1</b><span>Generador · un comando</span></div>
+    <div><b class="num">13</b><span>Bloques de contenido</span></div>
+  </div>
+
+  <div class="chips" id="chips" role="group" aria-label="Filtrar por familia"></div>
+
+  <div class="work">
+    <div class="list" id="list" role="listbox" aria-label="Tipos de documento" tabindex="0"></div>
+
+    <aside class="detail" id="detail" aria-live="polite">
+      <header>
+        <span class="eyebrow" id="d-fam">Familia</span>
+        <h2 id="d-name">Elige un tipo</h2>
+        <p id="d-desc"></p>
+      </header>
+      <div class="tabs" role="tablist" id="tabs">
+        <button class="tab" role="tab" data-tab="preview" aria-selected="true">Vista previa</button>
+        <button class="tab" role="tab" data-tab="fields" aria-selected="false">Campos</button>
+        <button class="tab" role="tab" data-tab="example" aria-selected="false">Ejemplo JSON</button>
+        <button class="tab" role="tab" data-tab="skeleton" aria-selected="false">Esqueleto</button>
+        <button class="tab" role="tab" data-tab="command" aria-selected="false">Generar</button>
+      </div>
+      <div class="pane" id="pane-preview" role="tabpanel"></div>
+      <div class="pane" id="pane-fields" role="tabpanel" hidden></div>
+      <div class="pane" id="pane-example" role="tabpanel" hidden></div>
+      <div class="pane" id="pane-skeleton" role="tabpanel" hidden></div>
+      <div class="pane" id="pane-command" role="tabpanel" hidden></div>
+    </aside>
+  </div>
+
+  <section class="doc" id="bloques">
+    <div class="head">
+      <h2>Bloques de contenido</h2>
+      <p>Las piezas con que se arma cualquier sección libre (análisis de un memo, secciones de un informe, cláusulas). Se escriben en el JSON; el formato lo pone el generador.</p>
+    </div>
+    <div class="blocks">
+      <div class="block"><div class="demo"><div style="text-align:justify">Un párrafo en Cambria 11 pt, justificado, con interlineado 1,15. Los énfasis van en <b>negrita</b> y las referencias a documentos en <i>cursiva</i>.</div></div><div class="info"><b>Párrafo</b><p>Un string suelto, o <code>{"p": "…"}</code>. Admite <code>**negrita**</code> y <code>*cursiva*</code>.</p><pre>"Texto del párrafo con **énfasis**."</pre></div></div>
+      <div class="block"><div class="demo"><div class="rot">Sección II</div><div style="font-size:17px;font-weight:700;color:#004339;border-bottom:2px solid #004339;padding-bottom:2px">Título 1 con rótulo</div><div style="border-bottom:1px solid #C9D4D1;margin-top:2px"></div><div style="font-size:14px;font-weight:700;color:#004339;border-top:1px solid #C9D4D1;padding-top:5px;margin-top:8px">Título 2</div><div style="font-size:13px;font-weight:700;color:#007665;margin-top:4px">Título 3</div></div><div class="info"><b>Títulos</b><p>Tres niveles. El 1 lleva rótulo opcional y doble filete; el 2, filete fino arriba; el 3 va en verde medio.</p><pre>{ "h1": "Análisis", "rotulo": "Sección II" }
+{ "h2": "1. Poderes" }
+{ "h3": "1.1 Vigencia" }</pre></div></div>
+      <div class="block"><div class="demo"><div class="rot" style="color:#004339;padding-left:10px">Diagnóstico</div><div style="border-left:3px solid #004339;padding:2px 0 2px 10px;text-align:justify">Lo que el lector tiene que llevarse de este punto, en dos o tres líneas.</div></div><div class="info"><b>Diagnóstico · Recomendación · rótulo libre</b><p>El único bloque con filete lateral. Se usa para lo que importa.</p><pre>{ "diagnostico": "…" }
+{ "recomendacion": "…" }
+{ "rotulo": "En síntesis", "texto": "…" }</pre></div></div>
+      <div class="block"><div class="demo"><div style="display:flex;gap:8px"><span style="color:#004339;font-weight:700;min-width:16px">1.</span><span>Numeración decimal para pasos y obligaciones.</span></div><div style="display:flex;gap:8px;margin-top:3px"><span style="color:#004339;font-weight:700;min-width:16px">(a)</span><span>Letras para alternativas.</span></div><div style="display:flex;gap:8px;margin-top:3px"><span style="color:#004339;font-weight:700;min-width:16px">(i)</span><span>Romanos en el tercer nivel.</span></div></div><div class="info"><b>Listas</b><p>Tipos <code>decimal</code>, <code>letra</code>, <code>romano</code>, <code>vineta</code>. Un ítem puede traer <code>sub</code>.</p><pre>{ "lista": ["uno", { "texto": "dos", "sub": ["dos a"] }],
+  "tipo": "decimal" }</pre></div></div>
+      <div class="block"><div class="demo"><div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;font-family:var(--sans);font-size:10.5px"><div style="background:#004339;color:#fff;font-weight:700;padding:4px 6px">Materia</div><div style="background:#004339;color:#fff;font-weight:700;padding:4px 6px">Plazo</div><div style="background:#004339;color:#fff;font-weight:700;padding:4px 6px">Estado</div><div style="padding:4px 6px;border-bottom:1px solid #C9D4D1">Poderes vigentes</div><div style="padding:4px 6px;border-bottom:1px solid #C9D4D1">30 días</div><div style="padding:4px 6px;border-bottom:1px solid #C9D4D1"><span class="sem"><i style="background:#2E7D32"></i>Cumple</span></div><div style="padding:4px 6px;background:#F7FAF9;border-bottom:1px solid #C9D4D1">Citación a junta</div><div style="padding:4px 6px;background:#F7FAF9;border-bottom:1px solid #C9D4D1">Vencido</div><div style="padding:4px 6px;background:#F7FAF9;border-bottom:1px solid #C9D4D1"><span class="sem"><i style="background:#B3261E"></i>No cumple</span></div></div></div><div class="info"><b>Tabla con semáforo</b><p>Cabecera invertida, cebra, sin líneas verticales. Una celda <code>{"sem": …}</code> pone el punto y la palabra.</p><pre>{ "tabla": { "cabecera": ["Materia","Plazo","Estado"],
+  "filas": [["Poderes","30 días",{ "sem":"verde" }]],
+  "anchos": [0.5,0.25,0.25] } }</pre></div></div>
+      <div class="block"><div class="demo"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;font-family:var(--sans)"><div style="background:#EDF2F0;border-top:3px solid #B3261E;padding:8px;text-align:center"><div style="font-family:var(--serif);font-size:22px;font-weight:700;color:#B3261E;line-height:1">2</div><div style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;margin-top:3px">Críticos</div></div><div style="background:#EDF2F0;border-top:3px solid #C98A1B;padding:8px;text-align:center"><div style="font-family:var(--serif);font-size:22px;font-weight:700;color:#C98A1B;line-height:1">3</div><div style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;margin-top:3px">Relevantes</div></div><div style="background:#EDF2F0;border-top:3px solid #2E7D32;padding:8px;text-align:center"><div style="font-family:var(--serif);font-size:22px;font-weight:700;color:#2E7D32;line-height:1">9</div><div style="font-size:8px;letter-spacing:.12em;text-transform:uppercase;margin-top:3px">Conformes</div></div></div></div><div class="info"><b>Tarjetas</b><p>Cifras grandes del resumen ejecutivo. En due diligence, checklist y tabla de obligaciones se calculan solas.</p><pre>{ "tarjetas": [{ "n": 2, "label": "Críticos", "color": "B3261E" }] }</pre></div></div>
+      <div class="block"><div class="demo"><div style="padding:0 18px;font-style:italic;color:#494948;text-align:justify">"Cambio de Control: la adquisición, directa o indirecta, por cualquier persona…" (cláusula segunda)</div><div style="font-family:var(--sans);font-size:10px;color:#5A5A5A;margin-top:10px;text-align:justify">Nota en Calibri gris: limitaciones, advertencias, alcance de la revisión.</div></div><div class="info"><b>Cita · Nota</b><p>La cita transcribe una cláusula o norma, sangrada y en cursiva. La nota va al pie del cuerpo.</p><pre>{ "cita": "…" }
+{ "nota": "…" }</pre></div></div>
+      <div class="block"><div class="demo"><div style="display:grid;grid-template-columns:70px 1fr;gap:3px 10px;font-family:var(--sans);font-size:11px;border-top:1px solid #C9D4D1;border-bottom:1px solid #C9D4D1;padding:6px 0"><div class="rot">Para</div><div>[Destinatario]</div><div class="rot">De</div><div>[Nombre] · Área Mercantil</div><div class="rot">Ref.</div><div><b>[Asunto]</b></div></div></div><div class="info"><b>Ficha</b><p>Pares rótulo / valor. El memorándum, la opinión legal, el checklist y la minuta la usan de cabecera.</p><pre>{ "ficha": [["Para","…"],["De","…"],["Referencia","…"]] }</pre></div></div>
+      <div class="block"><div class="demo"><div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-family:var(--sans);font-size:10px;text-align:center;margin-top:18px"><div style="border-top:1px solid #1A1A1A;padding-top:4px"><b>[Nombre]</b><br><span style="color:#5A5A5A">Presidente</span></div><div style="border-top:1px solid #1A1A1A;padding-top:4px"><b>[Nombre]</b><br><span style="color:#5A5A5A">Secretario/a</span></div></div></div><div class="info"><b>Firmas</b><p>Líneas de firma en una, dos o tres columnas. Actas, contratos, poderes, certificados y cartas las ponen solas.</p><pre>{ "firmas": [{ "nombre": "…", "cargo": "…" }] }</pre></div></div>
+      <div class="block"><div class="demo"><div style="font-size:13px;font-weight:700"><span style="color:#004339">PRIMERO.</span> Antecedentes.</div><div style="text-align:justify;margin-top:4px">[Por qué se celebra el contrato.]</div><div style="font-size:13px;font-weight:700;margin-top:8px"><span style="color:#004339">SEGUNDO.</span> Objeto.</div></div><div class="info"><b>Cláusula</b><p>Solo en el contrato y el poder: el generador numera con ordinales (PRIMERO, SEGUNDO…) y el contenido usa los bloques de arriba.</p><pre>{ "titulo": "Objeto", "contenido": ["…", { "lista": ["…"], "tipo": "letra" }] }</pre></div></div>
+      <div class="block"><div class="demo"><div style="height:120px;background:#004339;color:#fff;padding:16px;display:flex;flex-direction:column;justify-content:flex-end"><div style="font-family:var(--sans);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:#63C3B0">Informe</div><div style="font-size:19px;font-weight:700;line-height:1.1">Título del informe</div></div></div><div class="info"><b>Portada y cabecera</b><p>No se escriben en el JSON: cada tipo decide si abre con portada verde (informe, due diligence) o con cabecera de título (los demás).</p><pre>informe, due-diligence → portada
+los otros 12 → cabecera</pre></div></div>
+      <div class="block"><div class="demo"><div style="border-top:1px dashed #C9D4D1;margin:30px 0 8px;text-align:center;font-family:var(--sans);font-size:9px;color:#5A5A5A;letter-spacing:.14em;text-transform:uppercase">salto de página</div></div><div class="info"><b>Salto · Espacio</b><p>Para forzar página nueva o abrir un espacio vertical medido en twips (240 = una línea).</p><pre>{ "salto": true }
+{ "espacio": 240 }</pre></div></div>
+    </div>
+  </section>
+
+  <section class="doc" id="tokens">
+    <div class="head">
+      <h2>Tokens</h2>
+      <p>Los mismos de <code>base.mjs</code> y del tablero de sistemas. Clic en un color lo copia.</p>
+    </div>
+    <div class="swatches" id="swatches"></div>
+    <div class="grid2">
+      <div>
+        <h3>Tipografía en Word</h3>
+        <div class="tablewrap"><table class="spec">
+          <thead><tr><th>Rol</th><th>Fuente</th><th>Tamaño</th><th>Color</th></tr></thead>
+          <tbody>
+            <tr><td class="t"><b>Título 1</b></td><td>Cambria negrita</td><td>16 pt</td><td>verde, doble filete</td></tr>
+            <tr><td class="t"><b>Título 2</b></td><td>Cambria negrita</td><td>13 pt</td><td>verde, filete fino arriba</td></tr>
+            <tr><td class="t"><b>Título 3</b></td><td>Cambria negrita</td><td>11,5 pt</td><td>verde medio</td></tr>
+            <tr><td class="t">Rótulo</td><td>Calibri negrita, versalitas</td><td>8 pt</td><td>verde medio, espaciado</td></tr>
+            <tr><td class="t">Cuerpo</td><td>Cambria</td><td>11 pt · 1,15</td><td>tinta, justificado</td></tr>
+            <tr><td class="t">Tablas y pie</td><td>Calibri</td><td>9 y 8 pt</td><td>tinta / gris</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+      <div>
+        <h3>Página y semáforo</h3>
+        <div class="tablewrap"><table class="spec">
+          <thead><tr><th>Qué</th><th>Valor</th></tr></thead>
+          <tbody>
+            <tr><td>Papel</td><td>Carta, márgenes de 2,5 cm los cuatro</td></tr>
+            <tr><td>Encabezado</td><td>Logotipo (si existe) + rótulo del documento, filete verde</td></tr>
+            <tr><td>Pie</td><td>Referencia a la izquierda · Página X de Y</td></tr>
+            <tr><td>Filetes</td><td>Grueso 2,25 pt verde · fino 0,5 pt gris</td></tr>
+            <tr><td>Esquinas y sombras</td><td>Ninguna, en toda la familia</td></tr>
+            <tr><td>Semáforo</td><td><span class="sem"><i style="background:var(--rojo)"></i>No cumple</span> &nbsp; <span class="sem"><i style="background:var(--ambar)"></i>Insuficiente</span> &nbsp; <span class="sem"><i style="background:var(--ok)"></i>Cumple</span> &nbsp; <span class="sem"><i style="background:var(--ink2)"></i>No aplica</span></td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="doc" id="como">
+    <div class="head">
+      <h2>Cómo se corre</h2>
+      <p>Del pedido al Word en cinco pasos. Es lo que hace la skill <code>formato-garrigues</code>; a mano son los mismos.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><b>Elegir el tipo</b><p>Con el catálogo de arriba. Si el pedido calza con dos, el más simple: memorándum antes que informe.</p></div>
+      <div class="step"><b>Partir del esqueleto</b><p>Pestaña Esqueleto: la estructura del tipo con corchetes donde va cada dato. Se guarda fuera del repo, en la carpeta del asunto.</p></div>
+      <div class="step"><b>Escribir el contenido</b><p>Solo lo que está en el pedido. Lo que falta se queda entre corchetes; nunca se inventa.</p></div>
+      <div class="step"><b>Generar</b><p><code>node plantillas/generar.mjs &lt;tipo&gt; datos.json salida.docx</code>. Si falta un campo obligatorio, el generador lo dice.</p></div>
+      <div class="step"><b>Auditar y entregar</b><p>Abrir el Word: corchetes que el pedido sí resolvía, tablas que corten palabras, nombres y fechas. Esfuerzo alto si sale a terceros.</p></div>
+    </div>
+    <div style="margin-top:18px" id="cmds-globales"></div>
+  </section>
+
+  <section class="doc" id="reglas">
+    <div class="head">
+      <h2>Reglas que no se negocian</h2>
+    </div>
+    <div class="rules">
+      <div class="rule"><b>Corchetes = dato que falta.</b> La IA nunca los inventa; los deja y Dominga los completa.</div>
+      <div class="rule"><b>Nada de clientes en el repositorio.</b> Los ejemplos son ficticios; el JSON con contenido real vive en la carpeta del asunto.</div>
+      <div class="rule"><b>Las citas normativas se verifican.</b> El formato lo pone el generador; la norma la confirma ella en la fuente oficial.</div>
+      <div class="rule"><b>Semáforo con palabra.</b> No cumple, Insuficiente, Cumple, No aplica. Nunca solo el color.</div>
+      <div class="rule"><b>Esfuerzo alto para terceros.</b> Un documento a la vez; auditoría antes de la revisión propia.</div>
+      <div class="rule"><b>Si falta una pieza, se agrega a <code>base.mjs</code></b> una vez y la heredan los 14 tipos. Nunca se simula formato con texto.</div>
+      <div class="rule p"><b>Lo personal no se mezcla.</b> La familia rosada del gestor nunca aparece en una pieza de trabajo, ni al revés.</div>
+    </div>
+  </section>
+
+  <footer>
+    <span id="foot-gen">Datos generados desde <code>plantillas/tipos/</code> y <code>plantillas/ejemplos/</code>.</span>
+    <span>Repositorio <a href="https://github.com/Domialamos/sistemas-de-diseno">Domialamos/sistemas-de-diseno</a> · carpeta <code>plantillas/</code></span>
+  </footer>
+</main>
+
+<script>
+(function(){
+  const D = window.PLANTILLAS || { familias: [], tipos: [] };
+  const $ = (s, el = document) => el.querySelector(s);
+  const el = (tag, attrs = {}, ...kids) => {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v);
+    }
+    for (const c of kids) if (c != null) n.append(c);
+    return n;
+  };
+  const ICON_COPY = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1"></rect><path d="M5 15V5a1 1 0 0 1 1-1h10"></path></svg>';
+
+  // Presentaciones: formato fuera del generador, pero parte del catálogo.
+  const SLIDE = { tipo: 'presentacion', nombre: 'Presentación', familia: 'Asesoría', fueraDelGenerador: true,
+    descripcion: 'Plantilla corporativa .pptx (interna, no se publica). Arial, títulos en verde, cuerpo en gris texto, una afirmación por slide. La referencia visual está en el lienzo de Claude Design.',
+    requeridos: [], ejemplo: null, previews: [], paginas: null, portada: false };
+  const TIPOS = [...D.tipos, SLIDE];
+
+  const mem = { get(k, d) { try { return localStorage.getItem('pg:' + k) ?? d; } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem('pg:' + k, v); } catch (e) {} } };
+  const state = { familia: mem.get('familia', 'Todas'), q: '', tipo: mem.get('tipo', D.tipos[0]?.tipo ?? 'presentacion'), tab: mem.get('tab', 'preview'), page: 0 };
+
+  // --- utilidades ---
+  let toastT;
+  function toast(msg) { let t = $('.toast'); if (!t) { t = el('div', { class: 'toast', role: 'status' }); document.body.append(t); } t.textContent = msg; clearTimeout(toastT); toastT = setTimeout(() => t.remove(), 1600); }
+  async function copy(text, msg = 'Copiado') {
+    try { await navigator.clipboard.writeText(text); toast(msg); }
+    catch (e) { const ta = el('textarea', { style: 'position:fixed;opacity:0' }); ta.value = text; document.body.append(ta); ta.select(); try { document.execCommand('copy'); toast(msg); } catch (e2) { toast('No se pudo copiar'); } ta.remove(); }
+  }
+  const copyBtn = (text, label, primary) => { const b = el('button', { class: 'btn' + (primary ? ' primary' : ''), type: 'button', onclick: () => copy(typeof text === 'function' ? text() : text) }); b.innerHTML = ICON_COPY + ' ' + label; return b; };
+
+  const ENUM = new Set(['tipo', 'sem', 'riesgo', 'estado', 'tipoSesion', 'tipoJunta', 'tipoPlazo', 'calidad', 'asistencia', 'rol', 'caracter', 'confidencial', 'vigente', 'cumplida', 'porClausula', 'ventanaDias']);
+  function esqueleto(v, clave) {
+    if (Array.isArray(v)) return v.length ? [esqueleto(v[0], clave)] : [];
+    if (v && typeof v === 'object') { const o = {}; for (const [k, x] of Object.entries(v)) o[k] = esqueleto(x, k); return o; }
+    if (clave && ENUM.has(clave)) return v;
+    if (typeof v === 'string') { if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return '[aaaa-mm-dd]'; if (/^\[.*\]$/.test(v)) return v; return `[${clave ?? 'texto'}]`; }
+    if (typeof v === 'number') return `[${clave ?? 'número'}]`;
+    return v;
+  }
+  const tipoDe = (v) => Array.isArray(v) ? `lista · ${v.length}` : v && typeof v === 'object' ? 'objeto' : typeof v === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(v) ? 'fecha aaaa-mm-dd' : typeof v === 'number' ? 'número' : typeof v === 'boolean' ? 'sí / no' : 'texto';
+  const cmdGenerar = (t) => `node plantillas/generar.mjs ${t.tipo} plantillas/ejemplos/${t.tipo}.json ~/Downloads/${t.tipo}.docx`;
+
+  // --- filtros ---
+  function familias() { const c = {}; for (const t of TIPOS) c[t.familia] = (c[t.familia] || 0) + 1; return [['Todas', TIPOS.length], ...D.familias.map(f => [f, c[f] || 0])]; }
+  function renderChips() {
+    const box = $('#chips'); box.innerHTML = '';
+    for (const [f, n] of familias()) {
+      const b = el('button', { class: 'chip', type: 'button', 'aria-pressed': String(state.familia === f), onclick: () => { state.familia = f; mem.set('familia', f); renderList(); renderChips(); } }, f);
+      b.append(el('span', { class: 'n', text: String(n) })); box.append(b);
+    }
+    box.append(el('span', { class: 'count', id: 'count' }));
+    updateCount();
+  }
+  function visibles() {
+    const q = state.q.trim().toLowerCase();
+    return TIPOS.filter(t => (state.familia === 'Todas' || t.familia === state.familia) && (!q || [t.tipo, t.nombre, t.descripcion, t.familia].join(' ').toLowerCase().includes(q)));
+  }
+  function updateCount() { const c = $('#count'); if (c) c.textContent = `${visibles().length} de ${TIPOS.length}`; }
+
+  // --- lista ---
+  function renderList() {
+    const list = $('#list'); list.innerHTML = '';
+    const vs = visibles(); updateCount();
+    if (!vs.length) { list.append(el('div', { class: 'empty', text: 'Ningún tipo calza con la búsqueda.' })); return; }
+    for (const t of vs) {
+      const meta = el('div', { class: 'meta' });
+      meta.append(el('span', { class: 'tag', text: t.fueraDelGenerador ? 'pptx' : (t.portada ? 'portada' : 'cabecera') }));
+      if (!t.fueraDelGenerador) meta.append(el('span', {}, el('b', { text: String(t.requeridos.length) }), ' obligatorios'));
+      if (t.paginas) meta.append(el('span', {}, el('b', { text: String(t.paginas) }), t.paginas === 1 ? ' página en el ejemplo' : ' páginas en el ejemplo'));
+      if (t.fueraDelGenerador) meta.append(el('span', { text: 'fuera del generador' }));
+      const row = el('button', { class: 'row', type: 'button', role: 'option', 'aria-current': String(state.tipo === t.tipo), 'data-tipo': t.tipo, onclick: () => select(t.tipo) },
+        el('span', { class: 'name', text: t.nombre }), el('span', { class: 'fam', text: t.familia }), el('span', { class: 'desc', text: t.descripcion }), meta);
+      list.append(row);
+    }
+  }
+  function select(tipo, scroll) {
+    state.tipo = tipo; state.page = 0; mem.set('tipo', tipo);
+    for (const r of document.querySelectorAll('.row')) r.setAttribute('aria-current', String(r.dataset.tipo === tipo));
+    renderDetail();
+    if (scroll || window.matchMedia('(max-width: 980px)').matches) $('#detail').scrollIntoView({ block: 'start' });
+  }
+
+  // --- detalle ---
+  function setTab(tab) {
+    state.tab = tab; mem.set('tab', tab);
+    for (const b of document.querySelectorAll('.tab')) b.setAttribute('aria-selected', String(b.dataset.tab === tab));
+    for (const p of document.querySelectorAll('.pane')) p.hidden = p.id !== 'pane-' + tab;
+  }
+  function renderDetail() {
+    const t = TIPOS.find(x => x.tipo === state.tipo) || TIPOS[0]; if (!t) return;
+    $('#d-fam').textContent = `${t.familia} · ${t.fueraDelGenerador ? 'plantilla .pptx' : t.tipo}`;
+    $('#d-name').textContent = t.nombre;
+    $('#d-desc').textContent = t.descripcion;
+
+    // vista previa
+    const pv = $('#pane-preview'); pv.innerHTML = '';
+    if (t.previews.length) {
+      const box = el('div', { class: 'preview' });
+      const img = el('img', { class: 'page', alt: `Vista previa de ${t.nombre}, página ${t.previews[state.page].match(/-(\d+)\.jpg$/)[1]}`, src: t.previews[state.page], loading: 'lazy', onclick: () => lightbox(t.previews[state.page]) });
+      const nav = el('div', { class: 'nav' });
+      const prev = el('button', { type: 'button', text: 'Anterior', onclick: () => { state.page = Math.max(0, state.page - 1); renderDetail(); } });
+      const next = el('button', { type: 'button', text: 'Siguiente', onclick: () => { state.page = Math.min(t.previews.length - 1, state.page + 1); renderDetail(); } });
+      prev.disabled = state.page === 0; next.disabled = state.page >= t.previews.length - 1;
+      nav.append(prev, next, el('span', { text: `Página ${t.previews[state.page].match(/-(\d+)\.jpg$/)[1]}${t.paginas ? ' de ' + t.paginas : ''} del ejemplo · clic para ampliar` }));
+      box.append(img, t.previews.length > 1 || t.paginas ? nav : el('div', { class: 'nav', text: 'Clic para ampliar' }));
+      pv.append(box);
+    } else {
+      pv.append(el('p', { class: 'note', text: t.fueraDelGenerador ? 'Las presentaciones usan la plantilla .pptx corporativa; la referencia visual (slide con banda verde, título como afirmación, bloque de conclusión) está en el lienzo de Claude Design.' : 'Sin vista previa: corre bash plantillas/tablero/previews.sh para generarla.' }));
+    }
+
+    // campos
+    const pf = $('#pane-fields'); pf.innerHTML = '';
+    if (t.ejemplo) {
+      const req = t.requeridos; const opc = Object.keys(t.ejemplo).filter(k => !req.includes(k) && !req.some(r => r.startsWith(k + '.')));
+      const g = el('div', { class: 'fields' });
+      const mk = (title, keys, isReq) => { const w = el('div'); w.append(el('h4', { text: title })); const ul = el('ul'); for (const k of keys) { const v = k.split('.').reduce((a, p) => a == null ? undefined : a[p], t.ejemplo); ul.append(el('li', {}, el('code', { text: k }), el('span', { text: isReq ? tipoDe(v) + ' · obligatorio' : tipoDe(v) }))); } w.append(ul); return w; };
+      g.append(mk('Obligatorios · el generador se detiene si faltan', req, true));
+      if (opc.length) g.append(mk('Opcionales · se omiten si no vienen', opc, false));
+      pf.append(g, el('p', { class: 'note', text: 'Los textos admiten **negrita** y *cursiva*. Las fechas van en aaaa-mm-dd y el generador las escribe en largo o en corto según el lugar. Lo que no se sabe va entre corchetes.' }));
+    } else pf.append(el('p', { class: 'note', text: 'Este formato no pasa por el generador.' }));
+
+    // ejemplo
+    const pe = $('#pane-example'); pe.innerHTML = '';
+    if (t.ejemplo) {
+      const json = JSON.stringify(t.ejemplo, null, 2);
+      pe.append(el('div', { class: 'actions' }, copyBtn(json, 'Copiar ejemplo', true), el('span', { class: 'muted', text: `plantillas/ejemplos/${t.tipo}.json · contenido ficticio` })), el('pre', { text: json }));
+    } else pe.append(el('p', { class: 'note', text: 'Sin ejemplo JSON.' }));
+
+    // esqueleto
+    const ps = $('#pane-skeleton'); ps.innerHTML = '';
+    if (t.ejemplo) {
+      const sk = JSON.stringify(esqueleto(t.ejemplo), null, 2);
+      ps.append(el('div', { class: 'actions' }, copyBtn(sk, 'Copiar esqueleto', true), el('span', { class: 'muted', text: 'la estructura del tipo, con corchetes donde va cada dato' })), el('pre', { text: sk }),
+        el('p', { class: 'note', text: 'Las listas quedan con un solo elemento de muestra: se repite tantas veces como haga falta. Los valores de tipo (decimal, verde, ordinaria…) se dejan como están porque son opciones, no datos.' }));
+    } else ps.append(el('p', { class: 'note', text: 'Sin esqueleto para este formato.' }));
+
+    // comando
+    const pc = $('#pane-command'); pc.innerHTML = '';
+    if (t.ejemplo) {
+      const c1 = cmdGenerar(t), c2 = `node plantillas/generar.mjs --campos ${t.tipo}`;
+      pc.append(cmdRow(c1, 'Genera el ejemplo tal cual. Cambia la ruta del JSON por la del asunto y la salida por donde quieras el Word.'), cmdRow(c2, 'Lista los campos obligatorios y dónde está el ejemplo.'),
+        el('p', { class: 'note', text: 'Se corre desde la carpeta del repositorio, con npm install hecho una vez. Funciona igual en Mac y en Windows.' }));
+    } else pc.append(el('p', { class: 'note', text: 'Sin comando: se trabaja sobre la plantilla .pptx.' }));
+    setTab(state.tab);
+  }
+  function cmdRow(cmd, help) { const r = el('div', { class: 'cmd' }); r.append(el('code', { text: cmd }), copyBtn(cmd, 'Copiar')); if (help) r.append(el('small', { text: help })); return r; }
+  function lightbox(src) { const lb = el('div', { class: 'lightbox', role: 'dialog', 'aria-label': 'Vista previa ampliada', onclick: () => lb.remove() }, el('img', { src, alt: 'Página ampliada' })); document.body.append(lb); const k = (e) => { if (e.key === 'Escape') { lb.remove(); document.removeEventListener('keydown', k); } }; document.addEventListener('keydown', k); }
+
+  // --- tokens ---
+  const SWATCHES = [['verde', '#004339', 'títulos, portadas, filetes'], ['verde medio', '#007665', 'rótulos, título 3'], ['verde vivo', '#00A07E', 'solo gráficos'], ['menta', '#63C3B0', 'texto sobre banda verde'], ['gris', '#ECECEC', 'fondos de slide'], ['gris texto', '#494948', 'cuerpo en presentaciones'], ['verde claro', '#EDF2F0', 'tarjetas, bloques'], ['cebra', '#F7FAF9', 'filas alternas'], ['tinta', '#1A1A1A', 'cuerpo'], ['tinta sec.', '#5A5A5A', 'notas, pie'], ['filete', '#C9D4D1', 'líneas finas'], ['rojo', '#B3261E', 'semáforo: no cumple'], ['ámbar', '#C98A1B', 'semáforo: insuficiente'], ['verde ok', '#2E7D32', 'semáforo: cumple']];
+  function renderSwatches() { const box = $('#swatches'); for (const [n, hex, uso] of SWATCHES) { const b = el('button', { class: 'sw', type: 'button', title: uso, 'aria-label': `${n} ${hex}, copiar`, onclick: () => copy(hex, `${hex} copiado`) }); b.append(el('i', { style: `background:${hex}` }), el('b', { text: n }), el('span', { text: hex })); box.append(b); } }
+
+  // --- comandos globales ---
+  function renderCmds() { const box = $('#cmds-globales'); for (const [c, h] of [['npm install', 'Una vez, en la carpeta del repositorio.'], ['node plantillas/generar.mjs --lista', 'Catálogo de tipos.'], ['node plantillas/generar.mjs --todos', 'Regenera los 14 ejemplos en plantillas/salida/.'], ['bash plantillas/tablero/previews.sh', 'Actualiza las vistas previas de este tablero (LibreOffice + poppler).']]) box.append(cmdRow(c, h)); }
+
+  // --- arranque ---
+  $('#n-tipos').textContent = String(D.tipos.length);
+  $('#n-familias').textContent = String(D.familias.length);
+  if (D.generadoEl) $('#foot-gen').textContent = `Datos generados el ${D.generadoEl} desde plantillas/tipos/ y plantillas/ejemplos/.`;
+  renderChips(); renderList(); renderSwatches(); renderCmds();
+  if (!TIPOS.some(t => t.tipo === state.tipo)) state.tipo = TIPOS[0].tipo;
+  renderDetail();
+  $('#tabs').addEventListener('click', (e) => { const b = e.target.closest('.tab'); if (b) setTab(b.dataset.tab); });
+  $('#q').addEventListener('input', (e) => { state.q = e.target.value; renderList(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== $('#q')) { e.preventDefault(); $('#q').focus(); }
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && $('#list').contains(document.activeElement)) {
+      e.preventDefault(); const rows = [...document.querySelectorAll('.row')]; const i = rows.findIndex(r => r.dataset.tipo === state.tipo);
+      const j = Math.min(rows.length - 1, Math.max(0, i + (e.key === 'ArrowDown' ? 1 : -1))); if (rows[j]) { rows[j].focus(); select(rows[j].dataset.tipo); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

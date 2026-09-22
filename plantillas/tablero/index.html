@@ -186,7 +186,7 @@ footer{margin:56px 0 40px;padding-top:14px;border-top:1px solid var(--line);font
 
 <main class="wrap">
   <div class="summary" id="summary" aria-label="Resumen">
-    <div><b class="num" id="n-tipos">14</b><span>Tipos de documento</span></div>
+    <div><b class="num" id="n-tipos">15</b><span id="n-tipos-label">Formatos · 14 en Word + presentación</span></div>
     <div><b class="num" id="n-familias">4</b><span>Familias</span></div>
     <div><b class="num">1</b><span>Generador · un comando</span></div>
     <div><b class="num">13</b><span>Bloques de contenido</span></div>
@@ -481,7 +481,8 @@ los otros 12 → cabecera</pre></div></div>
   function renderCmds() { const box = $('#cmds-globales'); for (const [c, h] of [['npm install', 'Una vez, en la carpeta del repositorio.'], ['node plantillas/generar.mjs --lista', 'Catálogo de tipos.'], ['node plantillas/generar.mjs --todos', 'Regenera los 14 ejemplos en plantillas/salida/.'], ['bash plantillas/tablero/previews.sh', 'Actualiza las vistas previas de este tablero (LibreOffice + poppler).']]) box.append(cmdRow(c, h)); }
 
   // --- arranque ---
-  $('#n-tipos').textContent = String(D.tipos.length);
+  $('#n-tipos').textContent = String(TIPOS.length);
+  $('#n-tipos-label').textContent = `Formatos · ${D.tipos.length} en Word + presentación`;
   $('#n-familias').textContent = String(D.familias.length);
   if (D.generadoEl) $('#foot-gen').textContent = `Datos generados el ${D.generadoEl} desde plantillas/tipos/ y plantillas/ejemplos/.`;
   renderChips(); renderList(); renderSwatches(); renderCmds();

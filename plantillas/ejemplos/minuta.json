@@ -1,0 +1,26 @@
+{
+  "reunion": "Reunión de avance · Adquisición de Filial Modelo Uno SpA",
+  "bajada": "Coordinación semanal con el cliente",
+  "fecha": "2026-09-22",
+  "hora": "09:00 a 09:45",
+  "lugar": "Videollamada",
+  "asistentes": ["[Nombre] · Inversiones Ejemplo Limitada", "[Nombre] · Inversiones Ejemplo Limitada", "[Nombre] · Área Mercantil", "[Nombre] · Área Mercantil"],
+  "redacta": "[Nombre] · Área Mercantil",
+  "distribucion": "Asistentes",
+  "temas": [
+    { "tema": "Estado del due diligence", "resumen": "Se presentó el resumen ejecutivo con dos hallazgos críticos: poderes vencidos de la objetivo y consentimiento pendiente de Banco Modelo al cambio de control. El cliente aceptó incluir ambos como condiciones precedentes." },
+    { "tema": "Pacto de accionistas", "resumen": "Queda pendiente la cláusula de salida. El cliente enviará su posición sobre el mecanismo de venta conjunta durante la semana." },
+    { "tema": "Calendario de cierre", "resumen": "Se mantiene el 15 de octubre como fecha objetivo, condicionada a la junta de ratificación del 6 de octubre y a la respuesta del Banco." }
+  ],
+  "acuerdos": [
+    { "acuerdo": "Enviar al Banco el aviso de cambio de control con los antecedentes del adquirente", "responsable": "Vendedores, con revisión de Garrigues", "plazo": "2026-09-24" },
+    { "acuerdo": "Enviar posición sobre la cláusula de salida del pacto", "responsable": "Cliente", "plazo": "2026-09-26" },
+    { "acuerdo": "Circular versión revisada del pacto de accionistas", "responsable": "Garrigues", "plazo": "2026-09-30" },
+    { "acuerdo": "Actualizar el checklist de cierre y compartirlo", "responsable": "Garrigues", "plazo": "Semanal, los lunes" }
+  ],
+  "pendientes": [
+    "Confirmar con el Banco si la aprobación del cambio de control puede otorgarse antes de la firma.",
+    "Definir si la demanda laboral en curso se cubre con indemnidad o con ajuste de precio."
+  ],
+  "proximaReunion": "Lunes 29 de septiembre de 2026, 09:00, videollamada."
+}

@@ -1,0 +1,63 @@
+{
+  "titulo": "Revisión societaria y de cumplimiento",
+  "subtitulo": "Sociedad Modelo S.A. y filiales · Estado al cierre del primer semestre",
+  "cliente": "Inversiones Ejemplo Limitada",
+  "fecha": "2026-09-22",
+  "preparadoPor": "[Nombre] · Área Mercantil",
+  "referencia": "[N.º interno]",
+  "resumen": {
+    "tarjetas": [
+      { "n": 2, "label": "Materias críticas", "color": "B3261E" },
+      { "n": 3, "label": "Materias a subsanar", "color": "C98A1B" },
+      { "n": 9, "label": "Materias conformes", "color": "2E7D32" }
+    ],
+    "contenido": [
+      "Se revisó la documentación societaria y de cumplimiento de **Sociedad Modelo S.A.** y de sus dos filiales, con el objeto de determinar su estado al 30 de junio de 2026 y las acciones necesarias antes del cierre de la operación proyectada.",
+      "La sociedad matriz mantiene sus libros y registros al día. Las dos materias críticas se concentran en una filial: la vigencia de los poderes de su gerente general y una citación a junta publicada fuera de plazo."
+    ],
+    "recomendacion": "Regularizar los poderes de la filial mediante sesión de directorio antes del cierre y ratificar en junta extraordinaria los acuerdos adoptados en la junta cuya citación fue extemporánea."
+  },
+  "secciones": [
+    {
+      "titulo": "Antecedentes y alcance",
+      "contenido": [
+        "El encargo comprende la revisión de estatutos, actas de directorio y de juntas, registro de accionistas, poderes vigentes y cumplimiento de obligaciones de información, respecto de las tres sociedades del grupo.",
+        { "lista": ["Sociedad Modelo S.A. (matriz)", "Filial Modelo Uno SpA", "Filial Modelo Dos Limitada"], "tipo": "letra" },
+        { "nota": "La revisión se efectuó sobre copias proporcionadas por el cliente y certificados con vigencia no superior a 30 días a la fecha de corte." }
+      ]
+    },
+    {
+      "titulo": "Análisis por materia",
+      "contenido": [
+        { "h2": "1. Poderes y representación" },
+        "Los poderes del gerente general de Filial Modelo Uno SpA fueron otorgados por un plazo de dos años que expiró en marzo de 2026, sin que conste renovación en el libro de actas.",
+        { "diagnostico": "La filial ha celebrado contratos con posterioridad a esa fecha por un apoderado sin poder vigente. Los actos son ratificables, pero mientras no se ratifiquen existe un riesgo de inoponibilidad frente a terceros." },
+        { "recomendacion": "Sesión de directorio que renueve los poderes y ratifique expresamente los actos celebrados desde marzo, con nómina de los contratos ratificados como anexo del acta." },
+        { "h2": "2. Juntas de accionistas" },
+        { "tabla": {
+          "cabecera": ["Sociedad", "Última junta ordinaria", "Citación", "Estado"],
+          "filas": [
+            ["Sociedad Modelo S.A.", "28-04-2026", "En plazo", { "sem": "verde" }],
+            ["Filial Modelo Uno SpA", "30-04-2026", "Fuera de plazo", { "sem": "rojo" }],
+            ["Filial Modelo Dos Limitada", "No aplica", "No aplica", { "sem": "gris" }]
+          ],
+          "anchos": [0.32, 0.24, 0.22, 0.22]
+        } },
+        { "h2": "3. Registro de accionistas y libros" },
+        "Los registros de accionistas de la matriz y de la filial SpA están al día. El libro de actas de directorio de la matriz tiene todas sus actas firmadas hasta la sesión de agosto de 2026."
+      ]
+    },
+    {
+      "titulo": "Conclusiones y recomendaciones",
+      "contenido": [
+        { "lista": [
+          "Renovar los poderes de Filial Modelo Uno SpA y ratificar los actos celebrados sin poder vigente.",
+          "Celebrar junta extraordinaria de Filial Modelo Uno SpA que ratifique los acuerdos de la junta de abril.",
+          { "texto": "Materias a subsanar sin urgencia:", "sub": ["Actualizar el domicilio de la matriz en el registro de comercio.", "Completar la firma de dos actas de directorio de 2025.", "Regularizar la inscripción de un aumento de capital en el registro de accionistas."] }
+        ], "tipo": "decimal" }
+      ]
+    }
+  ],
+  "anexos": ["Nómina de documentos revisados", "Certificados de vigencia tenidos a la vista", "Borrador de acta de directorio de renovación de poderes"],
+  "limitacion": "Este informe se emite sobre la base de los antecedentes indicados y de la normativa vigente a su fecha. No constituye una opinión sobre hechos o documentos no tenidos a la vista."
+}

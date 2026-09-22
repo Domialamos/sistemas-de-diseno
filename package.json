@@ -1,0 +1,15 @@
+{
+  "name": "sistemas-de-diseno",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistemas de diseño de Dominga: tokens, tablero y generadores de documentos Garrigues",
+  "type": "module",
+  "scripts": {
+    "generar": "node plantillas/generar.mjs",
+    "ejemplos": "node plantillas/generar.mjs --todos",
+    "lista": "node plantillas/generar.mjs --lista"
+  },
+  "dependencies": {
+    "jszip": "^3.10.1"
+  }
+}

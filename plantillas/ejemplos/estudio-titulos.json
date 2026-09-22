@@ -1,0 +1,46 @@
+{
+  "inmueble": {
+    "nombreCorto": "Oficina 1201, Edificio Modelo",
+    "descripcion": "Oficina número 1201 del piso 12 y estacionamiento número 45 del subterráneo 2 del Edificio Modelo, ubicado en [dirección], comuna de [comuna], Región Metropolitana",
+    "comuna": "[comuna]",
+    "rol": "[rol de avalúo]",
+    "conservador": "Conservador de Bienes Raíces de Santiago",
+    "inscripcion": { "fojas": "[N]", "numero": "[N]", "anio": "2021" },
+    "propietario": "Sociedad Modelo S.A."
+  },
+  "solicitante": "Inversiones Ejemplo Limitada",
+  "fecha": "2026-09-22",
+  "periodo": "Últimos diez años (2016 a 2026)",
+  "textoTitulos": "La cadena de títulos de los últimos diez años es continua y las inscripciones se corresponden entre sí sin saltos ni superposiciones.",
+  "titulos": [
+    { "anio": 2016, "acto": "Compraventa", "partes": "[Vendedor original] a Inmobiliaria Ejemplo SpA", "inscripcion": "Fs. [N] N.º [N] Registro de Propiedad 2016" },
+    { "anio": 2018, "acto": "Compraventa", "partes": "Inmobiliaria Ejemplo SpA a [Comprador 2]", "inscripcion": "Fs. [N] N.º [N] Registro de Propiedad 2018" },
+    { "anio": 2021, "acto": "Compraventa", "partes": "[Comprador 2] a Sociedad Modelo S.A.", "inscripcion": "Fs. [N] N.º [N] Registro de Propiedad 2021 (vigente)" }
+  ],
+  "gravamenes": [
+    { "tipo": "Hipoteca de primer grado", "beneficiario": "Banco Modelo", "inscripcion": "Fs. [N] N.º [N] Registro de Hipotecas 2021", "vigente": true, "estado": "Vigente" },
+    { "tipo": "Hipoteca de primer grado", "beneficiario": "[Banco anterior]", "inscripcion": "Fs. [N] N.º [N] Registro de Hipotecas 2018", "vigente": false, "estado": "Alzada en 2021" }
+  ],
+  "prohibiciones": [
+    { "tipo": "Prohibición de gravar y enajenar", "beneficiario": "Banco Modelo", "inscripcion": "Fs. [N] N.º [N] Registro de Prohibiciones 2021", "vigente": true, "estado": "Vigente" }
+  ],
+  "otros": [
+    "El inmueble forma parte de un condominio acogido a la ley de copropiedad inmobiliaria. Se tuvo a la vista el reglamento de copropiedad y el certificado de gastos comunes al día emitido por la administración.",
+    "El certificado de avalúo fiscal indica que las contribuciones se encuentran pagadas hasta la cuota de [período]."
+  ],
+  "documentosRevisados": [
+    "Copia de inscripción de dominio con certificado de vigencia de [fecha]",
+    "Certificado de hipotecas y gravámenes de [fecha]",
+    "Certificado de prohibiciones e interdicciones de [fecha]",
+    "Escrituras públicas de compraventa de 2016, 2018 y 2021",
+    "Reglamento de copropiedad y certificado de gastos comunes",
+    "Certificado de avalúo fiscal y de deuda de contribuciones"
+  ],
+  "conclusion": "Los títulos del inmueble se encuentran ajustados a derecho y el dominio de Sociedad Modelo S.A. está debidamente inscrito. La hipoteca y la prohibición vigentes a favor de Banco Modelo deben alzarse o ser aceptadas por el comprador antes de la compraventa.",
+  "recomendaciones": [
+    "Condicionar la firma de la compraventa al alzamiento de la hipoteca y de la prohibición, o a la carta de resguardo del Banco.",
+    "Obtener certificados actualizados con vigencia no superior a 30 días a la fecha de la escritura.",
+    "Verificar en la administración del edificio la inexistencia de deudas de gastos comunes a la fecha de la escritura."
+  ],
+  "firmante": { "nombre": "[Nombre]", "cargo": "Abogada · Área Mercantil" }
+}

@@ -1,0 +1,24 @@
+{
+  "destinatario": "Banco Modelo",
+  "cliente": "Deudora Modelo SpA",
+  "sociedad": "Deudora Modelo SpA",
+  "fecha": "2026-09-22",
+  "referencia": "[N.º interno]",
+  "operacion": "Contrato de financiamiento por [monto] entre Deudora Modelo SpA y Banco Modelo",
+  "bajada": "Opinión sobre existencia, facultades y exigibilidad",
+  "documentos": [
+    "Escritura pública de constitución de la Sociedad y sus modificaciones, con sus inscripciones y publicaciones.",
+    "Certificado de vigencia de la Sociedad emitido por el Registro de Comercio de [ciudad] con fecha [fecha].",
+    "Acta de la sesión de directorio de [fecha] que aprobó la celebración del Contrato y otorgó los poderes para suscribirlo.",
+    "Copia firmada del Contrato de financiamiento de fecha [fecha].",
+    "Certificado del secretario de la Sociedad de fecha [fecha] sobre vigencia de poderes."
+  ],
+  "opiniones": [
+    "La Sociedad es una sociedad por acciones válidamente constituida y existente conforme a las leyes de la República de Chile.",
+    "La Sociedad tiene capacidad y facultades societarias para celebrar el Contrato y cumplir las obligaciones que asume en él.",
+    "La celebración y el cumplimiento del Contrato fueron debidamente autorizados por los órganos sociales competentes, y las personas que lo suscribieron en representación de la Sociedad contaban con poder suficiente y vigente a la fecha de su firma.",
+    "El Contrato constituye una obligación legal, válida y vinculante de la Sociedad, exigible en su contra conforme a sus términos.",
+    "La celebración del Contrato no contraviene los estatutos de la Sociedad ni, según nuestro conocimiento, contrato alguno del que la Sociedad sea parte y que nos haya sido exhibido."
+  ],
+  "firmante": { "nombre": "[Nombre del socio]", "cargo": "Socio", "detalle": "[Estudio]" }
+}

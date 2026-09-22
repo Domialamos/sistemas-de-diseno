@@ -1,0 +1,22 @@
+{
+  "ciudad": "Santiago",
+  "fecha": "2026-09-22",
+  "destinatario": {
+    "tratamiento": "Señor",
+    "nombre": "[Nombre del destinatario]",
+    "apellido": "[Apellido]",
+    "cargo": "Gerente General",
+    "empresa": "Banco Modelo",
+    "direccion": "[Dirección], Santiago"
+  },
+  "referencia": "Aviso de cambio de control · Contrato de financiamiento de [fecha]",
+  "parrafos": [
+    "En representación de **Deudora Modelo SpA** (la \"Deudora\") y conforme a la cláusula sexta del contrato de financiamiento suscrito con Banco Modelo el [fecha] (el \"Contrato\"), informamos que con fecha [fecha de cierre] Inversiones Ejemplo Limitada adquirió el 55% de las acciones emitidas con derecho a voto de la Deudora.",
+    "La operación constituye un cambio de control en los términos de la cláusula segunda del Contrato. Acompañamos a esta carta los antecedentes del adquirente y sus estados financieros auditados al 31 de diciembre de 2025, para la evaluación prevista en la cláusula novena.",
+    "Solicitamos que el Banco manifieste su aprobación dentro del plazo de treinta días contemplado en el Contrato. Quedamos a disposición para entregar cualquier información adicional que requieran."
+  ],
+  "despedida": "Sin otro particular, saluda atentamente,",
+  "firmante": { "nombre": "[Nombre]", "cargo": "Gerente General", "detalle": "Deudora Modelo SpA" },
+  "copia": "[Nombre], Área Mercantil",
+  "adjuntos": ["Antecedentes del adquirente", "Estados financieros auditados al 31-12-2025"]
+}

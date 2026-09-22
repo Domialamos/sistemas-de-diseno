@@ -1,0 +1,29 @@
+{
+  "sociedad": "Sociedad Modelo S.A.",
+  "tipoJunta": "extraordinaria",
+  "ciudad": "Santiago de Chile",
+  "fecha": "2026-10-06",
+  "hora": "10:00",
+  "lugar": "[domicilio social]",
+  "convocatoria": "La junta fue convocada por acuerdo del directorio adoptado en su sesión N.º 142 de 15 de septiembre de 2026. Los avisos de citación se publicaron en [diario] los días [fechas], y la citación se envió por correo a los accionistas con la anticipación estatutaria. Se dejó constancia de que se cumplieron las formalidades de convocatoria.",
+  "asistentes": [
+    { "accionista": "Inversiones Ejemplo Limitada", "representante": "[Nombre], según poder de [fecha]", "acciones": 550000, "porcentaje": "55,00%" },
+    { "accionista": "[Accionista 2]", "representante": "Por sí", "acciones": 300000, "porcentaje": "30,00%" },
+    { "accionista": "[Accionista 3]", "representante": "[Nombre], según poder de [fecha]", "acciones": 100000, "porcentaje": "10,00%" }
+  ],
+  "totalAcciones": 1000000,
+  "presidente": "[Nombre del Presidente]",
+  "secretario": "[Nombre del secretario]",
+  "calificacionPoderes": "Los poderes de los accionistas representados fueron calificados y aprobados sin observaciones.",
+  "tabla": [
+    { "materia": "Ratificación de acuerdos", "exposicion": "El Presidente explicó que la citación a la junta ordinaria de [fecha] se publicó fuera del plazo estatutario y que, para despejar cualquier duda sobre la validez de sus acuerdos, se propone ratificarlos." },
+    { "materia": "Reforma de estatutos", "exposicion": "Se propone modificar el artículo [N] de los estatutos, relativo al domicilio social." }
+  ],
+  "acuerdos": [
+    { "titulo": "Ratificación", "texto": "Ratificar íntegramente los acuerdos adoptados en la junta ordinaria de accionistas celebrada el [fecha], incluidos la aprobación de la memoria, el balance y los estados financieros del ejercicio 2025, la distribución de utilidades y la designación de auditores externos." },
+    { "titulo": "Reforma de estatutos", "texto": "Modificar el artículo [N] de los estatutos sociales, fijando el domicilio de la Sociedad en la comuna de [comuna], Región Metropolitana, sin perjuicio de las agencias o sucursales que pueda establecer en otros lugares del país o del extranjero, y aprobar el texto refundido de los estatutos que se agrega como anexo." },
+    { "titulo": "Facultades", "texto": "Facultar al portador de copia autorizada del acta de esta junta para reducirla a escritura pública, en todo o en parte, y requerir las inscripciones, subinscripciones, anotaciones y publicaciones que correspondan." }
+  ],
+  "firmantesActa": "los accionistas don/doña [Nombre] y don/doña [Nombre]",
+  "horaCierre": "10:45"
+}

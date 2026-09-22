@@ -1,0 +1,27 @@
+{
+  "contrato": "Contrato de financiamiento · Deudora Modelo SpA y Banco Modelo",
+  "bajada": "Obligaciones extraídas del texto íntegro, con fecha de corte",
+  "partes": "Deudora Modelo SpA (Deudora) · Banco Modelo (Banco) · [Avalista]",
+  "fechaContrato": "2026-03-01",
+  "fecha": "2026-09-22",
+  "preparadoPor": "[Nombre] · Área Mercantil",
+  "ventanaDias": 30,
+  "obligaciones": [
+    { "clausula": "3.1", "obligacion": "Pagar las cuotas de capital e intereses en las fechas del calendario de pagos", "tipo": "Pagar", "responsable": "Deudora", "plazo": "Semestral, 30-03 y 30-09", "fechaLimite": "2026-09-30", "consecuencia": "Interés penal y causal de aceleración (cl. 9.1)" },
+    { "clausula": "3.4", "obligacion": "Pagar la comisión de compromiso sobre el monto no desembolsado", "tipo": "Pagar", "responsable": "Deudora", "plazo": "Trimestral", "fechaLimite": "2026-09-30" },
+    { "clausula": "4.2", "obligacion": "Desembolsar el segundo tramo cumplidas las condiciones precedentes", "tipo": "Hacer", "responsable": "Banco", "plazo": "Dentro de 5 días hábiles desde la solicitud", "fechaLimite": "2026-10-15" },
+    { "clausula": "6.1", "obligacion": "Entregar estados financieros anuales auditados", "tipo": "Informar", "responsable": "Deudora", "plazo": "120 días desde el cierre del ejercicio", "fechaLimite": "2027-04-30", "consecuencia": "Incumplimiento subsanable en 15 días (cl. 9.2)" },
+    { "clausula": "6.2", "obligacion": "Entregar estados financieros trimestrales", "tipo": "Informar", "responsable": "Deudora", "plazo": "60 días desde el cierre del trimestre", "fechaLimite": "2026-08-29", "consecuencia": "Incumplimiento subsanable en 15 días (cl. 9.2)" },
+    { "clausula": "6.3", "obligacion": "Entregar certificado de cumplimiento de covenants firmado por el gerente de finanzas", "tipo": "Informar", "responsable": "Deudora", "plazo": "Junto con cada entrega de estados financieros", "fechaLimite": "2026-08-29" },
+    { "clausula": "6.5", "obligacion": "Informar por escrito todo cambio de control", "tipo": "Informar", "responsable": "Deudora", "plazo": "5 días hábiles desde que se produzca", "tipoPlazo": "Condicional", "consecuencia": "Prepago exigible si el Banco no aprueba en 30 días (cl. 9.4)" },
+    { "clausula": "6.6", "obligacion": "Informar cualquier litigio por cuantía superior a [monto]", "tipo": "Informar", "responsable": "Deudora", "plazo": "10 días hábiles desde la notificación", "tipoPlazo": "Condicional" },
+    { "clausula": "7.1", "obligacion": "Mantener vigentes los seguros sobre los activos en garantía", "tipo": "Hacer", "responsable": "Deudora", "plazo": "Durante toda la vigencia", "tipoPlazo": "Permanente", "consecuencia": "Causal de aceleración (cl. 9.1)" },
+    { "clausula": "7.2", "obligacion": "Mantener una razón de endeudamiento no superior a [X] veces", "tipo": "Hacer", "responsable": "Deudora", "plazo": "Medición semestral", "fechaLimite": "2026-12-31", "consecuencia": "Causal de aceleración (cl. 9.1)" },
+    { "clausula": "7.3", "obligacion": "Renovar la boleta de garantía antes de su vencimiento", "tipo": "Hacer", "responsable": "Deudora", "plazo": "30 días antes del vencimiento", "fechaLimite": "2026-09-10", "consecuencia": "Causal de aceleración (cl. 9.1)" },
+    { "clausula": "8.1", "obligacion": "No constituir gravámenes sobre los activos sin consentimiento del Banco", "tipo": "No hacer", "responsable": "Deudora", "plazo": "Durante toda la vigencia", "tipoPlazo": "Permanente" },
+    { "clausula": "8.2", "obligacion": "No distribuir dividendos mientras exista un incumplimiento pendiente", "tipo": "No hacer", "responsable": "Deudora", "plazo": "Durante toda la vigencia", "tipoPlazo": "Permanente" },
+    { "clausula": "8.3", "obligacion": "No enajenar activos esenciales", "tipo": "No hacer", "responsable": "Deudora", "plazo": "Durante toda la vigencia", "tipoPlazo": "Permanente" },
+    { "clausula": "10.1", "obligacion": "Mantener vigente la fianza y codeuda solidaria", "tipo": "Hacer", "responsable": "Avalista", "plazo": "Hasta el pago total", "tipoPlazo": "Permanente" },
+    { "clausula": "12.2", "obligacion": "Notificar cambio de domicilio para efectos del contrato", "tipo": "Informar", "responsable": "Deudora", "plazo": "Dentro de 5 días desde el cambio", "tipoPlazo": "Condicional" }
+  ]
+}

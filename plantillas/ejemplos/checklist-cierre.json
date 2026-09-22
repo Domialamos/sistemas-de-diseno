@@ -1,0 +1,47 @@
+{
+  "operacion": "Adquisición del 55% de Filial Modelo Uno SpA",
+  "bajada": "Documentos de la operación, por etapa",
+  "cliente": "Inversiones Ejemplo Limitada",
+  "partes": "Inversiones Ejemplo Limitada (compradora) · [Vendedores] · Filial Modelo Uno SpA (sociedad objetivo)",
+  "fecha": "2026-09-22",
+  "fechaCierre": "2026-10-15",
+  "responsable": "[Nombre] · Área Mercantil",
+  "etapas": [
+    {
+      "nombre": "Firma",
+      "items": [
+        { "documento": "Contrato de compraventa de acciones", "responsable": "Garrigues", "estado": "listo", "fecha": "2026-09-19" },
+        { "documento": "Pacto de accionistas", "responsable": "Garrigues", "estado": "en curso", "fecha": "2026-09-26", "observaciones": "Pendiente cláusula de salida" },
+        { "documento": "Poderes de los firmantes", "responsable": "Cada parte", "estado": "listo", "fecha": "2026-09-19" },
+        { "documento": "Certificados de vigencia de las sociedades", "responsable": "Garrigues", "estado": "listo", "fecha": "2026-09-18" }
+      ]
+    },
+    {
+      "nombre": "Condiciones precedentes",
+      "descripcion": "Deben cumplirse antes del cierre, según la cláusula [N] del contrato de compraventa.",
+      "items": [
+        { "documento": "Acta de directorio de la objetivo: renovación de poderes y ratificación de actos", "responsable": "Vendedores", "estado": "pendiente", "fecha": "2026-10-01" },
+        { "documento": "Consentimiento de Banco Modelo al cambio de control", "responsable": "Vendedores", "estado": "en curso", "fecha": "2026-10-08", "observaciones": "Aviso enviado el 22-09" },
+        { "documento": "Acta de junta extraordinaria de ratificación", "responsable": "Vendedores", "estado": "pendiente", "fecha": "2026-10-06" },
+        { "documento": "Certificado de deuda laboral y previsional actualizado", "responsable": "Vendedores", "estado": "pendiente", "fecha": "2026-10-13" }
+      ]
+    },
+    {
+      "nombre": "Cierre",
+      "items": [
+        { "documento": "Traspaso de acciones firmado", "responsable": "Vendedores", "estado": "pendiente", "fecha": "2026-10-15" },
+        { "documento": "Inscripción del traspaso en el registro de accionistas", "responsable": "Sociedad objetivo", "estado": "pendiente", "fecha": "2026-10-15" },
+        { "documento": "Comprobante de pago del precio", "responsable": "Compradora", "estado": "pendiente", "fecha": "2026-10-15" },
+        { "documento": "Renuncias y designación de nuevos directores", "responsable": "Sociedad objetivo", "estado": "pendiente", "fecha": "2026-10-15" }
+      ]
+    },
+    {
+      "nombre": "Post-cierre",
+      "items": [
+        { "documento": "Aviso de cambio de control a contrapartes contractuales", "responsable": "Sociedad objetivo", "estado": "pendiente", "fecha": "2026-10-22" },
+        { "documento": "Actualización de registros ante organismos", "responsable": "Garrigues", "estado": "pendiente", "fecha": "2026-10-30" },
+        { "documento": "Archivo de la operación (closing binder)", "responsable": "Garrigues", "estado": "pendiente", "fecha": "2026-11-15" }
+      ]
+    }
+  ]
+}

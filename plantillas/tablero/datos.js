@@ -1,6 +1,6 @@
 // Generado por plantillas/tablero/construir.mjs. No editar a mano: la fuente son tipos/ y ejemplos/.
 window.PLANTILLAS = {
- "generadoEl": "2026-09-22 19:05",
+ "generadoEl": "2026-09-22",
  "familias": [
   "Asesoría",
   "Societario",

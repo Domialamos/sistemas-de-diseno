@@ -10,8 +10,9 @@
   --bg:#FFFFFF; --panel:#F7FAF9; --panel2:#EDF2F0; --ink:#1A1A1A; --ink2:#5A5A5A; --line:#C9D4D1; --line2:#E3EAE8;
   --accent:#004339; --accent2:#007665; --accent-ink:#FFFFFF; --menta:#63C3B0;
   --rojo:#B3261E; --ambar:#C98A1B; --ambar-ink:#8A5E10; --ok:#2E7D32; --gris:#ECECEC;
-  --serif:"Source Serif 4",Cambria,Georgia,"Times New Roman",serif;
-  --sans:"Source Sans 3",Calibri,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+  /* Primero las fuentes de los documentos (Cambria y Calibri vienen con Office); Source Serif y Source Sans, de Google Fonts, solo donde no estén. Sin red, el tablero se ve igual con las del sistema. */
+  --serif:Cambria,"Source Serif 4",Georgia,"Times New Roman",serif;
+  --sans:Calibri,"Source Sans 3","Segoe UI","Helvetica Neue",Arial,sans-serif;
   --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
   --radius:0; --shadow:0 12px 32px rgba(0,67,57,.10);
   color-scheme:light;
@@ -325,8 +326,15 @@ los otros 12 → cabecera</pre></div></div>
 
 <script>
 (function(){
-  const D = window.PLANTILLAS || { familias: [], tipos: [] };
   const $ = (s, el = document) => el.querySelector(s);
+  if (!window.PLANTILLAS) {
+    // Sin datos.js no hay tablero: pasa en visores que cargan el HTML como instantánea aislada
+    // (el panel de vista previa de Claude Code, por ejemplo). Avisar en vez de mostrar un catálogo vacío.
+    $('#list').innerHTML = '<div class="empty"><b>No se pudo cargar datos.js.</b><br>Abre este archivo directo en el navegador (doble clic en index.html, o desde GitHub Pages): el panel de vista previa de Claude Code no carga los archivos de al lado.</div>';
+    $('#detail').hidden = true; $('#chips').hidden = true; $('#summary').hidden = true;
+    return;
+  }
+  const D = window.PLANTILLAS;
   const el = (tag, attrs = {}, ...kids) => {
     const n = document.createElement(tag);
     for (const [k, v] of Object.entries(attrs)) {
@@ -484,7 +492,7 @@ los otros 12 → cabecera</pre></div></div>
   $('#n-tipos').textContent = String(TIPOS.length);
   $('#n-tipos-label').textContent = `Formatos · ${D.tipos.length} en Word + presentación`;
   $('#n-familias').textContent = String(D.familias.length);
-  if (D.generadoEl) $('#foot-gen').textContent = `Datos generados el ${D.generadoEl} desde plantillas/tipos/ y plantillas/ejemplos/.`;
+  if (D.generadoEl) $('#foot-gen').textContent = `Datos generados desde plantillas/tipos/ y plantillas/ejemplos/ · fuente al ${D.generadoEl}.`;
   renderChips(); renderList(); renderSwatches(); renderCmds();
   if (!TIPOS.some(t => t.tipo === state.tipo)) state.tipo = TIPOS[0].tipo;
   renderDetail();

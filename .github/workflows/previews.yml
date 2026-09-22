@@ -1,0 +1,66 @@
+# Regenera datos.js y las vistas previas del tablero cada vez que cambia la fuente
+# de las plantillas, y las commitea. Así nadie necesita LibreOffice ni poppler en su
+# computador: se cambia un tipo o un ejemplo, se hace push, y el tablero se actualiza solo.
+name: Vistas previas del tablero
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'plantillas/base.mjs'
+      - 'plantillas/generar.mjs'
+      - 'plantillas/tipos/**'
+      - 'plantillas/ejemplos/**'
+      - 'plantillas/tablero/construir.mjs'
+      - 'plantillas/tablero/previews.sh'
+      - '.github/workflows/previews.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: previews-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  previews:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      # Caladea y Carlito son las equivalentes métricas de Cambria y Calibri: el PDF
+      # queda con las mismas medidas que en Word.
+      - name: LibreOffice, poppler y fuentes
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q libreoffice-writer poppler-utils fonts-crosextra-caladea fonts-crosextra-carlito
+
+      - run: npm ci
+
+      - name: Generar documentos, PDF, vistas previas y datos.js
+        run: bash plantillas/tablero/previews.sh
+
+      - name: Commitear si algo cambió
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add plantillas/tablero/datos.js plantillas/tablero/previews
+          if git diff --cached --quiet; then
+            echo "Sin cambios en el tablero."
+            exit 0
+          fi
+          git commit -m "Tablero: vistas previas y datos regenerados [skip ci]"
+          # Si alguien empujó mientras corríamos, reintentar sobre lo nuevo en vez de fallar.
+          for intento in 1 2 3; do
+            if git push; then exit 0; fi
+            echo "Push rechazado (intento $intento): rebase sobre el remoto y reintento."
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          done
+          echo "::error::No se pudo empujar el tablero después de tres intentos."
+          exit 1

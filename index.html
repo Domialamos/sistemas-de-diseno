@@ -1,0 +1,358 @@
+<title>Mis sistemas de diseño</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link id="fuentes" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style id="estilos">
+:root{
+  --fondo:#F5F4F0; --superficie:#FBFAF7; --tinta:#35362B; --tinta-2:#6B6C5F; --filete:#D9D6CC; --filete-fuerte:#35362B;
+  --acento:#C86E3B; --acento-suave:#F3E3D6;
+  --ok:#3D7A4E; --ok-fondo:#E3EEE4; --aviso:#9A6A12; --aviso-fondo:#F4EBD3; --mal:#A8321F; --mal-fondo:#F4DFDA;
+  --cond:"Barlow Condensed","Arial Narrow",sans-serif;
+  --cuerpo:Optima,Candara,"Segoe UI","Noto Sans",sans-serif;
+  --mono:"IBM Plex Mono",Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --fondo:#22231C; --superficie:#2B2C24; --tinta:#ECE9DF; --tinta-2:#A9A898; --filete:#44453A; --filete-fuerte:#ECE9DF;
+    --acento:#DE8753; --acento-suave:#44311F;
+    --ok:#8CC49A; --ok-fondo:#26382A; --aviso:#E0B45C; --aviso-fondo:#3D3320; --mal:#EE8B78; --mal-fondo:#42281F;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#22231C; --superficie:#2B2C24; --tinta:#ECE9DF; --tinta-2:#A9A898; --filete:#44453A; --filete-fuerte:#ECE9DF;
+  --acento:#DE8753; --acento-suave:#44311F;
+  --ok:#8CC49A; --ok-fondo:#26382A; --aviso:#E0B45C; --aviso-fondo:#3D3320; --mal:#EE8B78; --mal-fondo:#42281F;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--fondo);color:var(--tinta);font:15px/1.5 var(--cuerpo);padding-inline:clamp(16px,3vw,40px);padding-block:28px 48px}
+button,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--acento);outline-offset:2px}
+.cond{font-family:var(--cond);text-transform:uppercase;letter-spacing:.04em}
+.mono{font-family:var(--mono);font-size:12.5px}
+
+header.cab{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;border-bottom:2px solid var(--filete-fuerte);padding-bottom:14px}
+header.cab h1{font:700 clamp(30px,5vw,44px)/1 var(--cond);text-transform:uppercase;letter-spacing:.02em;margin:0}
+header.cab p{margin:6px 0 0;color:var(--tinta-2);max-width:62ch}
+.guardado{display:flex;align-items:center;gap:10px}
+.chip-guardado{font:600 13px var(--cond);text-transform:uppercase;letter-spacing:.06em;color:var(--tinta-2)}
+.chip-guardado.sucio{color:var(--acento)}
+.btn{border:1.5px solid var(--filete-fuerte);background:transparent;padding:7px 14px;cursor:pointer;font:600 14px var(--cond);text-transform:uppercase;letter-spacing:.06em;border-radius:0}
+.btn:hover{background:var(--tinta);color:var(--fondo)}
+.btn.primario{background:var(--acento);border-color:var(--acento);color:#fff}
+.btn.primario:hover{filter:brightness(.92)}
+.btn:disabled{opacity:.4;cursor:not-allowed;background:transparent;color:var(--tinta)}
+
+.resumen{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-bottom:1px solid var(--filete);margin-bottom:20px}
+.resumen div{padding:14px 16px 14px 0;display:flex;align-items:baseline;gap:10px}
+.resumen b{font:700 34px/1 var(--cond);font-variant-numeric:tabular-nums}
+.resumen span{font-size:13px;color:var(--tinta-2);line-height:1.3}
+.resumen .mal b{color:var(--mal)} .resumen .aviso b{color:var(--aviso)} .resumen .ok b{color:var(--ok)}
+
+.barra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:14px}
+.barra .etq{font:600 13px var(--cond);text-transform:uppercase;letter-spacing:.08em;color:var(--tinta-2);margin-right:4px}
+.filtro{border:1px solid var(--filete);background:transparent;padding:4px 12px;cursor:pointer;font-size:14px}
+.filtro[aria-pressed="true"]{background:var(--tinta);color:var(--fondo);border-color:var(--tinta)}
+.barra .pista{margin-left:auto;font-size:13px;color:var(--tinta-2)}
+
+.cuerpo{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:24px;align-items:start}
+.tablero-wrap{overflow-x:auto}
+.tablero{display:grid;grid-template-columns:repeat(5,minmax(180px,1fr));gap:12px;min-width:960px}
+.col{border-top:3px solid var(--filete-fuerte);background:transparent;display:flex;flex-direction:column;min-height:220px}
+.col h2{display:flex;justify-content:space-between;align-items:baseline;font:700 17px var(--cond);text-transform:uppercase;letter-spacing:.05em;margin:8px 0 2px}
+.col h2 small{font:500 14px var(--cond);color:var(--tinta-2);font-variant-numeric:tabular-nums}
+.col .ayuda{font-size:12.5px;color:var(--tinta-2);margin:0 0 10px;line-height:1.35;min-height:34px}
+.lista{display:flex;flex-direction:column;gap:8px;flex:1;padding-bottom:12px;min-height:80px}
+.col.sobre .lista{background:var(--acento-suave);outline:1.5px dashed var(--acento);outline-offset:-1px}
+.col[data-col="retirar"]{border-top-color:var(--mal)}
+.col[data-col="pordecidir"]{border-top-color:var(--acento)}
+
+.tarjeta{background:var(--superficie);border:1px solid var(--filete);padding:10px 12px 11px;cursor:pointer;text-align:left;width:100%;display:flex;flex-direction:column;gap:7px;border-radius:0}
+.tarjeta:hover{border-color:var(--tinta-2)}
+.tarjeta[aria-current="true"]{border:2px solid var(--acento);padding:9px 11px 10px}
+.tarjeta.arrastrando{opacity:.4}
+.tarjeta .nom{font:600 17px/1.1 var(--cond);text-transform:uppercase;letter-spacing:.03em}
+.tarjeta .meta{font-size:12.5px;color:var(--tinta-2);line-height:1.3}
+.tira{display:flex;height:10px;border:1px solid var(--filete)}
+.tira i{flex:1}
+.pie-tarj{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.nota-ind{font-size:12px;color:var(--acento)}
+.pill{font:600 11.5px/1 var(--cond);text-transform:uppercase;letter-spacing:.07em;padding:4px 7px;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.pc{color:var(--ok);background:var(--ok-fondo)}
+.pill.boveda{color:var(--aviso);background:var(--aviso-fondo)}
+.pill.obsoleto{color:var(--mal);background:var(--mal-fondo)}
+.vacia{font-size:13px;color:var(--tinta-2);border:1px dashed var(--filete);padding:14px;text-align:center}
+
+aside.detalle{border:1px solid var(--filete-fuerte);background:var(--superficie);position:sticky;top:calc(env(safe-area-inset-top,0px) + 16px);max-height:calc(100vh - 32px);overflow:auto}
+.detalle .enc{padding:16px 18px 12px;border-bottom:1px solid var(--filete)}
+.detalle h3{font:700 26px/1.05 var(--cond);text-transform:uppercase;letter-spacing:.02em;margin:6px 0 4px;text-wrap:balance}
+.detalle .enc p{margin:6px 0 0;font-size:14px}
+.sec{padding:12px 18px;border-bottom:1px solid var(--filete)}
+.sec:last-child{border-bottom:0}
+.sec h4{font:600 13px var(--cond);text-transform:uppercase;letter-spacing:.09em;color:var(--tinta-2);margin:0 0 8px}
+.muestras{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.muestra{border:1px solid var(--filete);background:transparent;padding:0;cursor:pointer;text-align:left;border-radius:0}
+.muestra i{display:block;height:36px;border-bottom:1px solid var(--filete)}
+.muestra span{display:block;padding:4px 6px 5px;font-size:12px;line-height:1.25}
+.muestra .mono{font-size:11.5px;color:var(--tinta-2)}
+.muestra.copiado .mono{color:var(--acento)}
+ul.lst{margin:0;padding-left:18px;font-size:14px}
+ul.lst li+li{margin-top:3px}
+.alerta{border-left:3px solid var(--mal);padding:6px 10px;background:var(--mal-fondo);font-size:13.5px;margin:0}
+.alerta+.alerta{margin-top:6px}
+.sug{border-left:3px solid var(--acento);padding:6px 10px;font-size:14px;margin:0;background:var(--acento-suave)}
+.ubic{display:flex;gap:8px;align-items:flex-start}
+.ubic code{flex:1;word-break:break-all;background:var(--fondo);padding:6px 8px;border:1px solid var(--filete)}
+.mover{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.mover select{border:1.5px solid var(--filete-fuerte);background:var(--superficie);padding:6px 8px;border-radius:0}
+textarea{width:100%;min-height:78px;border:1px solid var(--filete);background:var(--fondo);padding:8px;resize:vertical;border-radius:0;font-size:14px}
+.pie{margin-top:28px;font-size:13px;color:var(--tinta-2);border-top:1px solid var(--filete);padding-top:10px}
+
+@media (max-width:1100px){
+  .cuerpo{grid-template-columns:1fr}
+  aside.detalle{position:static;max-height:none}
+}
+@media (max-width:700px){
+  .tablero{grid-template-columns:1fr;min-width:0}
+  .col{min-height:0}
+  .col .ayuda{min-height:0}
+  .barra .pista{margin-left:0;width:100%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script type="application/json" id="estado">{"columnas":{"pordecidir":[],"mantener":["garrigues-plantilla","gestor"],"unificar":["garrigues-docx","garrigues-pptx-antiguo"],"reconstruir":["personal"],"retirar":["foro","escritorio"]},"notas":{"garrigues-plantilla":"Prioridad 1. Es la marca oficial de Garrigues: todo lo de Garrigues se alinea con ella, no al revés.","gestor":"Funciona y está en uso. Pendiente menor: limpiar los alias de la paleta anterior.","garrigues-docx":"Prioridad 2. Pasar el verde de #004136 a #004339 y decidir si la tipografía pasa de Cambria a Arial. Antes que nada, darle a g2.mjs una ubicación estable.","garrigues-pptx-antiguo":"Lo que vale es su estructura (tarjetas planas, casos repartidos). Cambiar el verde BSVV por la paleta de la plantilla y generar con PowerPoint por COM en vez de python-pptx.","personal":"No está en este PC: traerlo desde el Mac o reescribirlo. Ver si conviene fusionarlo con la familia rosada del gestor."},"items":{"garrigues-docx":{"nombre":"Garrigues · documentos","ambito":"Trabajo","formato":"Informes y minutas en .docx","estado":"pc","ubicacion":"garrigues-documentos/g2.mjs","desc":"Informes en Word: portada con banda verde, separadores a página completa, índice por campo TOC, tablas con cabecera invertida y semáforo con la palabra escrita.","paleta":[["#004136","Verde"],["#2E6B5E","Verde medio"],["#E8EFED","Verde claro"],["#1A1A1A","Tinta"],["#5A5A5A","Tinta secundaria"],["#C9D4D1","Filete"],["#B3261E","No cumple"],["#C98A1B","Insuficiente"],["#2E7D32","Suficiente"]],"tipo":"Cambria para títulos y cuerpo · Calibri 9 pt para tablas y notas","reglas":["Plano: sin sombras, sin degradados, radio 0","Numeración I. → 1. → a) → (i) → •","El semáforo siempre lleva la palabra escrita (se imprime en blanco y negro)"],"alertas":["El verde #004136 no coincide con la plantilla corporativa (#004339).","Usa Cambria; la plantilla corporativa usa Arial.","El generador todavía no tiene una ubicación estable."],"sugerencia":"Unificar con la plantilla corporativa y darle a g2.mjs una ubicación estable."},"garrigues-plantilla":{"nombre":"Garrigues · plantilla corporativa","ambito":"Trabajo","formato":"Presentaciones .pptx","estado":"pc","ubicacion":"Plantilla corporativa de Garrigues (no incluida en este repositorio)","desc":"Tema oficial “Presentación Garrigues”, 16:9, con 31 layouts con nombre: Portada, Índice, Separador, Contenido A–D, Bullets A–H, Fondos A–F y Contraportada.","paleta":[["#004339","Verde oscuro"],["#007665","Verde"],["#00A07E","Verde medio"],["#63C3B0","Verde claro"],["#ECECEC","Gris"],["#494948","Tinta"]],"tipo":"Arial, para títulos y cuerpo","reglas":["Copiar el archivo, borrar sus láminas y construir sobre sus layouts","Generar con PowerPoint por COM, no armando el OOXML a mano","Subtítulos cortos: el marcador es de una sola línea"],"alertas":["El archivo es interno de Garrigues y no se publica aquí."],"sugerencia":"Mantener como la autoridad de la marca Garrigues."},"gestor":{"nombre":"Gestor · dos mundos","ambito":"Mixto","formato":"App web (gestor-personal)","estado":"pc","ubicacion":"gestor-dos-mundos/globals.css","desc":"Una familia fría para las secciones de trabajo y otra rosada para las personales, con un color de fondo propio para cada sección.","paleta":[["#22201b","Tinta"],["#faf9f6","Papel"],["#2b5aa0","Acento trabajo"],["#e8edf3","Bruma"],["#ece3cf","Arena"],["#d1477e","Acento personal"],["#faeef3","Marfil"],["#f4c8d9","Barro"]],"tipo":"Satoshi variable, con respaldo Helvetica Neue","reglas":["Tamaño raíz fluido según el ancho de la pantalla","Transiciones de 0,3 s con curva suave"],"alertas":["Arrastra alias de la paleta anterior (--crema, --rosa, --lila…) redirigidos a los tonos nuevos.","Su familia rosada se parece al subsistema Personal, pero con otros tonos."],"sugerencia":"Mantener y limpiar los alias antiguos."},"foro":{"nombre":"Foro","ambito":"Trabajo","formato":"Informes, minutas, propuestas y cartas en HTML","estado":"boveda","ubicacion":"personal/README.md","desc":"El subsistema laboral por defecto, derivado de laweconcenter.org. Traía seis plantillas: informe, minuta, propuesta, carta, ficha y presentación 16:9.","paleta":[["#F5F4F0","Crema"],["#35362B","Tinta"],["#C86E3B","Terracota"]],"tipo":"Condensada en mayúsculas + Optima","reglas":["Terracota como único acento","Plano absoluto: sin sombras, radio 0","Partir siempre de una plantilla, nunca maquetar de cero"],"alertas":["La skill y sus plantillas no están en este PC; quizá sigan en el Mac."],"sugerencia":"Traer desde el Mac o reconstruir."},"escritorio":{"nombre":"Escritorio","ambito":"Trabajo","formato":"Dashboards y gestores","estado":"boveda","ubicacion":"personal/README.md","desc":"La misma marca de Foro, pensada para herramientas densas: cuerpo de 14–15 px, chips de estado, filtros vivos y exportadores integrados.","paleta":[["#F5F4F0","Crema"],["#35362B","Tinta"],["#C86E3B","Terracota"]],"tipo":"Condensada en mayúsculas + Optima, cuerpo de 14–15 px","reglas":["Filtros vivos y exportación en varios formatos","CSV con punto y coma para Excel en español"],"alertas":["Depende de Foro: si Foro se reconstruye, este va con él."],"sugerencia":"Reconstruir junto con Foro."},"garrigues-pptx-antiguo":{"nombre":"Garrigues PPTX (antiguo)","ambito":"Trabajo","formato":"Presentaciones con python-pptx","estado":"obsoleto","ubicacion":"personal/README.md","desc":"Primer intento de subsistema para las presentaciones de Garrigues, heredado de una capacitación anterior.","paleta":[["#009A77","Verde BSVV"]],"tipo":"Cambria / Calibri","reglas":["Tarjetas planas, casos repartidos"],"alertas":["El verde #009A77 es de BSVV, no de Garrigues.","Lo reemplaza la plantilla corporativa oficial.","Necesita Python, que no está en el PC del estudio."],"sugerencia":"Retirar."},"personal":{"nombre":"Personal","ambito":"Personal","formato":"Focus Flow, proyectos propios, invitaciones","estado":"boveda","ubicacion":"personal/README.md","desc":"Todo lo que no es trabajo, derivado de serious.business: rosa a página completa y tipografías mezcladas en la misma frase.","paleta":[["#FBC1D4","Rosa chicle"],["#1E1E1E","Tinta"],["#FF7EC4","Rosa fuerte"],["#C3ABFF","Lila"],["#FED35B","Amarillo"]],"tipo":"Avenir Next + Georgia","reglas":["Píldoras de 999 px y radios de 12 px (la única excepción a las esquinas rectas)","Sin sombras","Prohibido en piezas de trabajo"],"alertas":["La skill no está en este PC, aunque Focus Flow ya lo aplica."],"sugerencia":"Mantener y decidir si se fusiona con la familia personal del gestor."}}}</script>
+<div id="app"></div>
+<script id="programa">
+(function(){
+  const COLS = [
+    ["pordecidir","Por decidir","Aún sin revisar."],
+    ["mantener","Mantener","Sirve tal como está."],
+    ["unificar","Unificar","Hay que alinearlo con otro."],
+    ["reconstruir","Reconstruir","Existe solo en nota o está incompleto."],
+    ["retirar","Retirar","No se vuelve a usar."]
+  ];
+  const ESTADOS = {pc:"En este PC", boveda:"Solo en la bóveda", obsoleto:"Obsoleto"};
+  const estado = JSON.parse(document.getElementById("estado").textContent);
+  const app = document.getElementById("app");
+  const ss = {get(k){try{return sessionStorage.getItem(k)}catch(e){return null}}, set(k,v){try{sessionStorage.setItem(k,v)}catch(e){}}, del(k){try{sessionStorage.removeItem(k)}catch(e){}}};
+  const ls = {get(k){try{return localStorage.getItem(k)}catch(e){return null}}, set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  // Borrador sin guardar que sobrevivió a una recarga por conflicto
+  const borrador = ss.get("borrador");
+  let sucio = false;
+  if (borrador) { try { const b = JSON.parse(borrador); estado.columnas = b.columnas; estado.notas = b.notas; sucio = true; } catch(e){} ss.del("borrador"); }
+
+  let sel = ss.get("sel") || estado.columnas.pordecidir[0] || Object.keys(estado.items)[0];
+  if (!estado.items[sel]) sel = Object.keys(estado.items)[0];
+  let filtro = ls.get("filtro") || "Todos";
+  let artefacto = null, soloLectura = false, guardando = false, disponible = null;
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const visible = it => filtro === "Todos" || it.ambito === filtro || it.ambito === "Mixto";
+  const colDe = id => Object.keys(estado.columnas).find(c => estado.columnas[c].includes(id));
+
+  function tarjeta(id){
+    const it = estado.items[id];
+    const tira = it.paleta.slice(0,8).map(p => `<i style="background:${p[0]}"></i>`).join("");
+    const nota = (estado.notas[id]||"").trim() ? `<span class="nota-ind">✎ nota</span>` : "";
+    return `<button class="tarjeta" draggable="true" data-id="${id}" aria-current="${id===sel}">
+      <span class="nom">${esc(it.nombre)}</span>
+      <span class="meta">${esc(it.ambito)} · ${esc(it.formato)}</span>
+      <span class="tira" aria-hidden="true">${tira}</span>
+      <span class="pie-tarj"><span class="pill ${it.estado}">${ESTADOS[it.estado]}</span>${nota}</span>
+    </button>`;
+  }
+
+  function detalle(){
+    const it = estado.items[sel]; if (!it) return "";
+    const col = colDe(sel), lista = estado.columnas[col], i = lista.indexOf(sel);
+    return `<div class="enc">
+        <span class="pill ${it.estado}">${ESTADOS[it.estado]}</span>
+        <h3>${esc(it.nombre)}</h3>
+        <div class="meta" style="color:var(--tinta-2);font-size:13px">${esc(it.ambito)} · ${esc(it.formato)}</div>
+        <p>${esc(it.desc)}</p>
+      </div>
+      <div class="sec"><h4>Decisión</h4>
+        <div class="mover">
+          <label for="sel-col" class="cond" style="font-size:13px;color:var(--tinta-2)">Mover a</label>
+          <select id="sel-col">${COLS.map(c=>`<option value="${c[0]}"${c[0]===col?" selected":""}>${c[1]}</option>`).join("")}</select>
+          <button class="btn" id="subir" ${i<=0?"disabled":""} aria-label="Subir en la columna">↑</button>
+          <button class="btn" id="bajar" ${i>=lista.length-1?"disabled":""} aria-label="Bajar en la columna">↓</button>
+        </div>
+      </div>
+      ${it.alertas.length?`<div class="sec"><h4>A revisar</h4>${it.alertas.map(a=>`<p class="alerta">${esc(a)}</p>`).join("")}</div>`:""}
+      <div class="sec"><h4>Sugerencia</h4><p class="sug">${esc(it.sugerencia)}</p></div>
+      <div class="sec"><h4>Paleta · clic para copiar</h4>
+        <div class="muestras">${it.paleta.map(p=>`<button class="muestra" data-hex="${p[0]}"><i style="background:${p[0]}"></i><span>${esc(p[1])}<br><span class="mono">${p[0].toUpperCase()}</span></span></button>`).join("")}</div>
+      </div>
+      <div class="sec"><h4>Tipografía</h4><div style="font-size:14px">${esc(it.tipo)}</div></div>
+      <div class="sec"><h4>Reglas</h4><ul class="lst">${it.reglas.map(r=>`<li>${esc(r)}</li>`).join("")}</ul></div>
+      <div class="sec"><h4>Dónde está</h4><div class="ubic"><code class="mono">${esc(it.ubicacion)}</code><button class="btn" id="copiar-ubic">Copiar</button></div></div>
+      <div class="sec"><h4><label for="nota">Tu nota</label></h4><textarea id="nota" placeholder="Qué decidiste y por qué…">${esc(estado.notas[sel]||"")}</textarea></div>`;
+  }
+
+  function chipTexto(){
+    if (guardando) return "Guardando…";
+    if (soloLectura) return "Solo lectura";
+    if (disponible === false) return sucio ? "Cambios solo en esta vista" : "Guardar no disponible aquí";
+    return sucio ? "Cambios sin guardar" : "Todo guardado";
+  }
+
+  function render(){
+    const ids = Object.keys(estado.items);
+    const n = e => ids.filter(id => estado.items[id].estado === e).length;
+    const alertas = ids.reduce((s,id)=>s+estado.items[id].alertas.length,0);
+    const pend = estado.columnas.pordecidir.length;
+    const foco = document.activeElement && document.activeElement.id;
+    const notaVal = document.getElementById("nota");
+    const cursor = notaVal ? [notaVal.selectionStart, notaVal.selectionEnd] : null;
+
+    app.innerHTML = `
+      <header class="cab">
+        <div><h1>Mis sistemas de diseño</h1>
+          <p>Los ${ids.length} sistemas que tienes entre este PC y la bóveda. Arrastra cada uno a una columna para decidir qué hacer con él.</p></div>
+        <div class="guardado">
+          <span class="chip-guardado ${sucio?"sucio":""}" role="status">${chipTexto()}</span>
+          <button class="btn primario" id="guardar" ${(!sucio||guardando||soloLectura||disponible===false)?"disabled":""}>Guardar</button>
+        </div>
+      </header>
+      <section class="resumen" aria-label="Resumen">
+        <div class="ok"><b>${n("pc")}</b><span>en este PC</span></div>
+        <div class="aviso"><b>${n("boveda")}</b><span>solo como nota en la bóveda</span></div>
+        <div class="mal"><b>${n("obsoleto")}</b><span>obsoleto</span></div>
+        <div><b>${alertas}</b><span>puntos a revisar</span></div>
+        <div><b>${pend}</b><span>por decidir</span></div>
+      </section>
+      <div class="barra" role="group" aria-label="Filtrar por ámbito">
+        <span class="etq">Ámbito</span>
+        ${["Todos","Trabajo","Personal"].map(f=>`<button class="filtro" data-f="${f}" aria-pressed="${f===filtro}">${f}</button>`).join("")}
+        <span class="pista">Arrastra las tarjetas, o usa “Mover a” en el panel.</span>
+      </div>
+      <div class="cuerpo">
+        <div class="tablero-wrap"><div class="tablero">
+          ${COLS.map(([k,t,a])=>{
+            const lista = estado.columnas[k].filter(id=>visible(estado.items[id]));
+            return `<section class="col" data-col="${k}" aria-label="${t}">
+              <h2>${t}<small>${lista.length}</small></h2><p class="ayuda">${a}</p>
+              <div class="lista">${lista.length?lista.map(tarjeta).join(""):`<div class="vacia">Suelta aquí</div>`}</div>
+            </section>`;}).join("")}
+        </div></div>
+        <aside class="detalle" aria-label="Detalle">${detalle()}</aside>
+      </div>
+      <p class="pie">Los datos salen del inventario del 22-09-2026.</p>`;
+
+    if (foco) { const el = document.getElementById(foco); if (el) { el.focus(); if (foco==="nota" && cursor) el.setSelectionRange(cursor[0],cursor[1]); } }
+  }
+
+  function marcar(){ sucio = true; }
+  function mover(id, col, idx){
+    const origen = colDe(id);
+    estado.columnas[origen] = estado.columnas[origen].filter(x=>x!==id);
+    const dest = estado.columnas[col];
+    if (idx == null || idx > dest.length) idx = dest.length;
+    dest.splice(idx, 0, id);
+    marcar(); render();
+  }
+
+  // Clics
+  app.addEventListener("click", e => {
+    const t = e.target.closest("button"); if (!t) return;
+    if (t.classList.contains("tarjeta")) { sel = t.dataset.id; ss.set("sel", sel); render(); if (window.innerWidth<=1100) document.querySelector("aside.detalle").scrollIntoView({behavior:"smooth",block:"start"}); return; }
+    if (t.classList.contains("filtro")) { filtro = t.dataset.f; ls.set("filtro", filtro); render(); return; }
+    if (t.classList.contains("muestra")) { copiar(t.dataset.hex, t); return; }
+    if (t.id === "copiar-ubic") { copiar(estado.items[sel].ubicacion, t); return; }
+    if (t.id === "subir" || t.id === "bajar") {
+      const col = colDe(sel), l = estado.columnas[col], i = l.indexOf(sel), j = t.id==="subir"?i-1:i+1;
+      if (j<0||j>=l.length) return; [l[i],l[j]]=[l[j],l[i]]; marcar(); render(); document.getElementById(t.id)?.focus(); return;
+    }
+    if (t.id === "guardar") guardar();
+  });
+  app.addEventListener("change", e => { if (e.target.id === "sel-col") { mover(sel, e.target.value); document.getElementById("sel-col")?.focus(); } });
+  app.addEventListener("input", e => {
+    if (e.target.id !== "nota") return;
+    const v = e.target.value; if (v.trim()) estado.notas[sel] = v; else delete estado.notas[sel];
+    const antes = sucio; marcar();
+    // actualizar solo el chip y la tarjeta, sin re-render completo mientras escribe
+    const chip = app.querySelector(".chip-guardado"); if (chip){ chip.textContent = chipTexto(); chip.classList.add("sucio"); }
+    const g = document.getElementById("guardar"); if (g && !soloLectura && disponible!==false) g.disabled = false;
+    const card = app.querySelector(`.tarjeta[data-id="${sel}"] .pie-tarj`);
+    if (card) { const ind = card.querySelector(".nota-ind"); if (v.trim() && !ind) card.insertAdjacentHTML("beforeend",`<span class="nota-ind">✎ nota</span>`); if (!v.trim() && ind) ind.remove(); }
+  });
+
+  function copiar(txt, boton){
+    const ok = () => { boton.classList.add("copiado"); const m = boton.querySelector(".mono"); const prev = m?m.textContent:boton.textContent; if (m) m.textContent = "Copiado"; else boton.textContent = "Copiado"; setTimeout(()=>{ boton.classList.remove("copiado"); if (m) m.textContent = prev; else boton.textContent = prev; }, 1200); };
+    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(ok, ()=>{});
+  }
+
+  // Arrastrar y soltar
+  let arrastrado = null;
+  app.addEventListener("dragstart", e => { const c = e.target.closest(".tarjeta"); if (!c) return; arrastrado = c.dataset.id; c.classList.add("arrastrando"); e.dataTransfer.effectAllowed="move"; try{e.dataTransfer.setData("text/plain", arrastrado);}catch(_){} });
+  app.addEventListener("dragend", () => { arrastrado = null; app.querySelectorAll(".arrastrando,.sobre").forEach(x=>x.classList.remove("arrastrando","sobre")); });
+  app.addEventListener("dragover", e => { const col = e.target.closest(".col"); if (!col || !arrastrado) return; e.preventDefault(); app.querySelectorAll(".col.sobre").forEach(x=>x!==col&&x.classList.remove("sobre")); col.classList.add("sobre"); });
+  app.addEventListener("dragleave", e => { const col = e.target.closest(".col"); if (col && !col.contains(e.relatedTarget)) col.classList.remove("sobre"); });
+  app.addEventListener("drop", e => {
+    const col = e.target.closest(".col"); if (!col || !arrastrado) return; e.preventDefault();
+    const key = col.dataset.col;
+    const tarjetas = [...col.querySelectorAll(".tarjeta")].filter(t=>t.dataset.id!==arrastrado);
+    let despuesDe = null;
+    for (const t of tarjetas) { const r = t.getBoundingClientRect(); if (e.clientY > r.top + r.height/2) despuesDe = t.dataset.id; }
+    const lista = estado.columnas[key].filter(x=>x!==arrastrado);
+    const idx = despuesDe ? lista.indexOf(despuesDe)+1 : (tarjetas[0] ? lista.indexOf(tarjetas[0].dataset.id) : lista.length);
+    sel = arrastrado; ss.set("sel", sel);
+    const id = arrastrado; arrastrado = null;
+    mover(id, key, Math.max(0, idx));
+  });
+
+  // Guardar: publica una versión nueva de la página con el estado dentro
+  function paginaCompleta(){
+    const datos = JSON.stringify(estado).replace(/</g,"\\u003c");
+    const html = [
+      "<!doctype html>",
+      '<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">',
+      "<title>Mis sistemas de diseño</title>",
+      '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+      document.getElementById("fuentes").outerHTML,
+      document.getElementById("estilos").outerHTML,
+      "</head><body>",
+      '<script type="application/json" id="estado">' + datos + "<\/script>",
+      '<div id="app"></div>',
+      '<script id="programa">' + document.getElementById("programa").textContent + "<\/script>",
+      "</body></html>"
+    ];
+    return html.join("\n");
+  }
+  async function guardar(){
+    if (!artefacto || !sucio || guardando) return;
+    guardando = true; render();
+    ss.set("sel", sel);
+    ss.set("borrador", JSON.stringify({columnas:estado.columnas, notas:estado.notas}));
+    try {
+      await artefacto.publish(paginaCompleta());
+      ss.del("borrador"); // la vista se recarga con la versión nueva
+    } catch (err) {
+      guardando = false;
+      const c = err && err.code;
+      if (c === "conflict") return; // la vista se recarga sola; el borrador se recupera
+      ss.del("borrador");
+      if (c === "not_writer" || c === "not_granted" || c === "not_declared" || c === "consent_required" || c === "capability_disabled" || c === "capability_removed") { soloLectura = true; }
+      render();
+      if (!soloLectura) { const chip = app.querySelector(".chip-guardado"); if (chip) chip.textContent = c === "rate_limited" ? "Espera un momento y vuelve a guardar" : "No se pudo guardar; inténtalo de nuevo"; }
+    }
+  }
+
+  window.addEventListener("beforeunload", e => { if (sucio && !guardando) { e.preventDefault(); e.returnValue = ""; } });
+
+  render();
+  let intentos = 0;
+  (function conectar(){
+    if (window.claude && window.claude.use) {
+      window.claude.use("artifact").then(a => { artefacto = a; disponible = !!a; render(); }, () => { disponible = false; render(); });
+    } else if (++intentos < 20) { setTimeout(conectar, 250); }
+    else { disponible = false; render(); }
+  })();
+})();
+</script>

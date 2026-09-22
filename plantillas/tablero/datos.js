@@ -438,7 +438,7 @@ window.PLANTILLAS = {
    "previews": [
     "previews/acta-directorio-1.jpg"
    ],
-   "paginas": 3
+   "paginas": 2
   },
   {
    "tipo": "certificado",
